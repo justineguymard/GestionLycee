@@ -57,7 +57,9 @@ public class EtudiantManagedBean implements Serializable {
 	//méthodes métiers 
 	
 	public String ajouterEtudiant() {
-		return null;
+		etudiantService.ajouterEtudiant(this.etudiant);
+		return "etudiants";
+		
 		
 	}
 	

@@ -1,8 +1,14 @@
 package fr.inti.service;
 
-public interface IEtudiantService {
 
-	public int ajouterEtudiant();
+import fr.inti.entities.Etudiant;
+
+public interface IEtudiantService {
+	
+
+	
+
+	public void ajouterEtudiant(Etudiant etudiant);
 
 	public int ModifierEtudiant();
 

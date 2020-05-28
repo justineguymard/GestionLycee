@@ -17,7 +17,7 @@
   </context-param>
   <!-- accueil -->
   <welcome-file-list>
-  <welcome-file>eleves.xhtml</welcome-file>
+  <welcome-file>etudiants.xhtml</welcome-file>
   </welcome-file-list>
   
   
