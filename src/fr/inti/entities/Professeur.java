@@ -1,16 +1,44 @@
 package fr.inti.entities;
 
-public class Professeur {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="professeurs")
+@SuppressWarnings("serial")
+public class Professeur implements Serializable{
 
 	// declaration des attributs
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_p")
 	private int id;
+	
+	@Column(name="nom_p")
 	private String nom;
+	@Column(name="prenom_p")
 	private String prenom;
+	
+	@Column(name="date_aff")
 	private String dateAff;
 
 	// transformation UML en java
 
+	@OneToOne(mappedBy="professeur")
 	private Matiere matiere;
+	
+	@ManyToOne
+	@JoinColumn(name="id_dpt_professeur" , referencedColumnName="id_d")
 	private Departement department;
 
 	// declaration des constructeurs
