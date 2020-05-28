@@ -8,6 +8,17 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/faces/*</url-pattern>
+    <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
+      <!-- Specifier la phase du projet -->
+    <context-param>
+  <param-name>javax.faces.PROJECT_STAGE</param-name>
+  <param-value>Development</param-value>
+  </context-param>
+  <!-- accueil -->
+  <welcome-file-list>
+  <welcome-file>eleves.xhtml</welcome-file>
+  </welcome-file-list>
+  
+  
 </web-app>
