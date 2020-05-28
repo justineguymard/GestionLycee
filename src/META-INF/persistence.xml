@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-	<persistence-unit name="08_GestionLycee">
+	
+	
+	<persistence-unit name="pu_gestionLycee" transaction-type="RESOURCE_LOCAL" >
+	
+		<!-- Spéicifer l'implémentation de jpa utilisée (le fournisseur de l'implémentation) -->
+	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	
+	<!-- Declaration de toutes les classes persistantes  -->
+	<class>fr.inti.entities.Departement</class>
+	<class>fr.inti.entities.Etudiant</class>
+	<class>fr.inti.entities.Matiere</class>
+	<class>fr.inti.entities.Professeur</class>
+	
+	<properties>
+
+    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_gestionlycee?createDatabaseIfNotExist=true" />
+    <property name="javax.persistence.jdbc.user" value="root" />
+    <property name="javax.persistence.jdbc.password" value="root" />
+    <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+
+    <!-- Spéficier la stratégie de la génération des tables -->
+    <property
+        name="javax.persistence.schema-generation.database.action" value="create" />
+    <!-- Les valeurs possibles sont: 'none', 'create', 'drop-and-create', 'drop' -->
+    
+    <!-- Afficher les requêtes SQL générée automatique -->
+    <property name="hibernate.show_sql" value="FINE"/>
+    
+
+	
+</properties>	
+	
+	
+	
+	
+	
+	
+	
 	</persistence-unit>
+	
+	
 </persistence>
