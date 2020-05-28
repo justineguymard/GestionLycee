@@ -39,7 +39,7 @@ public class Professeur implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="id_dpt_professeur" , referencedColumnName="id_d")
-	private Departement department;
+	private Departement departement;
 
 	// declaration des constructeurs
 
@@ -103,12 +103,12 @@ public class Professeur implements Serializable{
 		this.matiere = matiere;
 	}
 
-	public Departement getDepartment() {
-		return department;
+	public Departement getDepartement() {
+		return departement;
 	}
 
-	public void setDepartment(Departement department) {
-		this.department = department;
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
 	}
 
 	// redefinition de la methode toString
