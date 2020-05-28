@@ -1,13 +1,36 @@
 package fr.inti.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Departement {
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="departements")
+@SuppressWarnings("serial")
+public class Departement implements Serializable {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_d")
 	private int id;
+	@Column(name="nom_d")
 	private String nom; 
 
+	@OneToMany(mappedBy="departement", cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
 	private List<Etudiant> listeEtudiants;
+	
+	@OneToMany(mappedBy="departement", cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
+	private List <Professeur> listeProfesseurs;
 	
 	
 	//constructeurs 
@@ -50,6 +73,16 @@ public class Departement {
 
 	public void setListeEtudiants(List<Etudiant> listeEtudiants) {
 		this.listeEtudiants = listeEtudiants;
+	}
+	
+	
+
+	public List<Professeur> getListeProfesseurs() {
+		return listeProfesseurs;
+	}
+
+	public void setListeProfesseurs(List<Professeur> listeProfesseurs) {
+		this.listeProfesseurs = listeProfesseurs;
 	}
 
 	@Override

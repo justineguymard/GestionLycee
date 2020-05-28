@@ -1,14 +1,36 @@
 package fr.inti.entities;
 
-public class Etudiant {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+@SuppressWarnings("serial")
+@Entity
+@Table(name="etudiants")
+public class Etudiant implements Serializable {
 	
 	//attributs
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_e")
 	private int id;	
+	@Column(name="nom_e")
 	private String nom;
+	@Column(name="prenom_e")
 	private String prenom;
 
 		
 	//transformation de l'association UML en 
+	@ManyToOne
+	@JoinColumn(name="id_dpt_etudiant", referencedColumnName="id_d" )
 	private Departement departement;
 	
 	//Constructeur 
