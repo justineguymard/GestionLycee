@@ -59,12 +59,20 @@ public class Professeur implements Serializable{
 		this.dateAff = dateAff;
 	}
 
-	public Professeur(int id, String nom, String prenom, Date dateAff) {
+	public Professeur(String nom, String prenom) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+	
+	}
+	
+	
+
+	public Professeur(int id, String nom, String prenom) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.dateAff = dateAff;
 	}
 
 	// declaration des getters et setters
