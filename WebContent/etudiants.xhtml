@@ -24,8 +24,10 @@ Ajouter un étudiant, modifier, supprimer et assigner
 <br/>
 Liste des étudiants 
 
+<div style="display: block; text-align: left">
 <h:form>
 <h:panelGrid columns="2" >
+<h3>Ajouter un étudiant</h3>
 		<h:outputLabel value="Nom: " />
 		<h:inputText value="#{etudiantMB.etudiant.nom}" required="true" />
 		
@@ -37,5 +39,24 @@ Liste des étudiants
 	</h:panelGrid>
 
 </h:form>
+</div>
+
+<div style="display: block; text-align: left">
+<h:form>
+<h:panelGrid columns="2" >
+<h3>Ajouter un étudiant</h3>
+		<h:outputLabel value="Nom: " />
+		<h:inputText value="#{etudiantMB.etudiant.nom}" required="true" />
+		
+		<h:outputLabel value="Prenom: " />
+		<h:inputText value="#{etudiantMB.etudiant.prenom}" />
+
+		<h:commandButton value="Ajouter" action="#{etudiantMB.ajouterEtudiant}" />
+	
+	</h:panelGrid>
+
+</h:form>
+</div>
+
 </h:body>
 </html>
