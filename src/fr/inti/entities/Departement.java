@@ -26,10 +26,10 @@ public class Departement implements Serializable {
 	@Column(name="nom_d")
 	private String nom; 
 
-	@OneToMany(mappedBy="departement", cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="departement")
 	private List<Etudiant> listeEtudiants;
 	
-	@OneToMany(mappedBy="departement", cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="departement")
 	private List <Professeur> listeProfesseurs;
 	
 	

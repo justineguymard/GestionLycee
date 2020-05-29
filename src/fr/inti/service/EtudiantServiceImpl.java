@@ -42,6 +42,8 @@ public class EtudiantServiceImpl implements IEtudiantService{
 	@Override
 	public Etudiant AssignerEtudiant(Etudiant etudiant, Departement departement) {
 		
+		
+		
 		return etDao.AssignerDepartement(etudiant, departement);
 	}
 

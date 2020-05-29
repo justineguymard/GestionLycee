@@ -21,8 +21,7 @@ public class EtudiantManagedBean implements Serializable {
 	private Etudiant etudiant;
 	private List <Etudiant> listeEtudiants;
 	
-	
-	
+	private Departement  departement;
 	//association uml en java 
 	
 	private IEtudiantService etudiantService = new EtudiantServiceImpl();
@@ -36,8 +35,8 @@ public class EtudiantManagedBean implements Serializable {
 	public void init () {
 		
 		this.etudiant = new Etudiant();
+		this.departement= new Departement();
 		this.listeEtudiants = etudiantService.getAllEtudiants();
-		this.etudiant.setDepartement(new Departement());
 		
 	}
 
@@ -57,8 +56,18 @@ public class EtudiantManagedBean implements Serializable {
 		this.listeEtudiants = listeEtudiants;
 	}
 	
+		public Departement getDepartement() {
+		return departement;
+	}
+
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
+	}
+
+	
 	//méthodes métiers 
 	
+
 	public String ajouterEtudiant() {
 		etudiantService.ajouterEtudiant(this.etudiant);
 		return "etudiants";
@@ -86,7 +95,7 @@ public class EtudiantManagedBean implements Serializable {
 	
 	
 	public String assignerDepartement() {
-		etudiantService.AssignerEtudiant(this.etudiant, this.etudiant.getDepartement() );
+		etudiantService.AssignerEtudiant(this.etudiant, this.departement );
 		return "etudiants";
 	}
 

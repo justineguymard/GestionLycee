@@ -132,6 +132,7 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 
 		// recuperer l'étudiant à modifier
 		Etudiant etudiantModif = em.find(Etudiant.class, etudiant.getId());
+		////Departement deptModif = em.find(Departement.class, depatement.getId());
 
 		// Modifier l'étudiant en java
 
