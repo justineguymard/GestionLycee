@@ -119,7 +119,7 @@
 		<p:column headerText="Prenom">
 			<h:outputText value="#{et.prenom}" />
 		</p:column>
-		<p:column headerText="Departement">
+		<p:column headerText="Departement (ID)">
 			<h:outputText value="#{et.departement.nom} (#{et.departement.id})"  rendered="#{et.departement.id != NULL}" />
 			<h:outputText value="Non associé à un département" rendered="#{et.departement.id == NULL}" />
 			
