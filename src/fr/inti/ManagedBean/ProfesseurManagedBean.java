@@ -78,34 +78,34 @@ public class ProfesseurManagedBean implements Serializable {
 	// methodes metiers 
 	public String ajouterProfesseur() {
 		professeurService.ajouterProfesseur(this.professeur);
-		return "professeurs";
+		return "professeurAjout";
 		
 	}
 
 	public String modifierProfesseur() {
 		
 		professeurService.ModifierProfesseur(professeur);
-		return "professeurs";
+		return "professeurModifier";
 	
 }
 	
 	public String supprimerProfesseur() {
 		
 		professeurService.SupprimerProfesseur(professeur);
-		return "professeurs";
+		return "professeurSupprimer";
 }
 	
 	
 	public String assignerDepartement() {
 		
 		professeurService.AssignerDepartement(this.professeur, this.departement);
-		return "professeurs";
+		return "professeurAssignerDepartement";
 }
 	
 	public String assignerMatiere() {
 		
 		professeurService.AssignerMatiere(this.professeur, this.matiere);
-		return "professeurs";
+		return "professeurAssignerMatiere";
 }
 	
 	

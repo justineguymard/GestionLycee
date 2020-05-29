@@ -69,7 +69,7 @@ public class EtudiantManagedBean implements Serializable {
 
 	public String ajouterEtudiant() {
 		etudiantService.ajouterEtudiant(this.etudiant);
-		return "etudiants";
+		return "etudiantAjout";
 		
 		
 	}
@@ -77,7 +77,7 @@ public class EtudiantManagedBean implements Serializable {
 	public String modifierEtudiant() {
 		int verif = etudiantService.ModifierEtudiant(this.etudiant);
 		if (verif != 0 ) {
-		return "etudiants";
+		return "etudiantModifier";
 		} else {
 			return "accueil";
 		}
@@ -88,14 +88,14 @@ public class EtudiantManagedBean implements Serializable {
 	
 	public String supprimerEtudiant() {
 		etudiantService.SupprimerEtudiant(this.etudiant);
-		return  "etudiants";
+		return  "etudiantSupprimer";
 		
 	}
 	
 	
 	public String assignerDepartement() {
 		etudiantService.AssignerEtudiant(this.etudiant, this.departement );
-		return "etudiants";
+		return "etudiantAssignerDepartement";
 	}
 
 }

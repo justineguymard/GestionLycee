@@ -6,9 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import fr.inti.entities.Etudiant;
 import fr.inti.entities.Matiere;
+import fr.inti.entities.Professeur;
 
 public class MatiereDaoImpl implements IMatiereDao{
 
@@ -97,14 +99,14 @@ public class MatiereDaoImpl implements IMatiereDao{
 		// instauration d'une verif
 		int verif = 0;
 
-		if (etudiantSuppression != null) { // si trouvé suppresion
+		if (MatiereSuppression != null) { // si trouvé suppresion
 			// suppression
 			verif++;
 
 		} else {
 		}
 
-		em.remove(etudiantSuppression);
+		em.remove(MatiereSuppression);
 
 		// ferme transaction
 		tx.commit();
@@ -118,10 +120,27 @@ public class MatiereDaoImpl implements IMatiereDao{
 
 	@Override
 	public List<Matiere> getAllMatieres() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		// creation d'un entityManagerFactory
+				EntityManagerFactory emf = Persistence.createEntityManagerFactory("puGestionLycee");
+
+				// creation d'un entityManager à partir de emf
+				EntityManager em = emf.createEntityManager();
+				
+				
+				//requete JPQL
+				String reqListeJPQL = "SELECT m FROM Matiere as m";
+				
+				Query queryListeJPQL = em.createQuery(reqListeJPQL);
+				
+				@SuppressWarnings("unchecked")
+				List<Matiere> listeMatieresJPQL = queryListeJPQL.getResultList();
+
+				return listeMatieresJPQL;
+			}
+
 	}
 	
 
 
-}
+
