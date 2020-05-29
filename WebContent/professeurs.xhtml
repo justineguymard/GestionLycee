@@ -16,29 +16,96 @@
       <ui:include src = "template/header.xhtml" />
 </ui:insert>
 
-image avec titre Gestion des professeurs
-
-Ajouter un professeur, modifier, supprimer et assigner 
+<h1 style="text-align: center">Gestion des Professeurs </h1>
 
 
 <br/>
-Liste des professeurs 
-
+<div style="display : block; text-align :center">
+<div style="display: inline-block">
 <h:form>
+<h3>Ajouter un professeur</h3>
 <h:panelGrid columns="2" >
+
 		<h:outputLabel value="Nom: " />
 		<h:inputText value="#{professeurMB.professeur.nom}" required="true" />
 		
 		<h:outputLabel value="Prenom: " />
-		<h:inputText value="#{professeurMB.professeur.prenom}" />
+		<h:inputText value="#{professeurMB.professeur.prenom}" required="true" />
 		
-<!-- 		<h:outputLabel value="Date d'Affectation: " /> -->
-<!-- 		<h:inputText  value="#{professeurMB.professeur.dateAff}" /> -->
-
-		<h:commandButton value="Ajouter" action="#{professeurMB.ajouterProfesseur}" />
+		<br/>
+		<h:commandButton value="Ajouter" action="#{professeurMB.ajouterProfesseur}"  style="margin-left : 30px"/>
 	
 	</h:panelGrid>
 
 </h:form>
+</div >
+
+<div style="display: inline-block">
+<h:form>
+<h3>Modifier un professeur</h3>
+<h:panelGrid columns="2" >
+
+		<h:outputLabel value="ID: " />
+		<h:inputText value="#{professeurMB.professeur.id}" required="true" />
+		
+		<h:outputLabel value="Nom: " />
+		<h:inputText value="#{professeurMB.professeur.nom}" />
+		
+		<h:outputLabel value="Prenom: " />
+		<h:inputText value="#{professeurMB.professeur.prenom}" />
+		
+		<br/>
+		<h:commandButton value="Modifier" action="#{professeurMB.modifierProfesseur}"  style="margin-left : 30px"/>
+	
+	</h:panelGrid>
+
+</h:form>
+</div>
+
+
+
+<div style="display: inline-block">
+<h:form>
+<h3>Supprimer un professeur </h3>
+<h:panelGrid columns="2" >
+
+		<h:outputLabel value="ID: " />
+		<h:inputText value="#{professeurMB.professeur.id}" required="true" />
+	
+		<br/>
+		<h:commandButton value="Supprimer" action="#{professeurMB.supprimerProfesseur}" style="margin-left : 30px" />
+	
+	</h:panelGrid>
+
+</h:form>
+</div>
+
+
+
+<div style="display: inline-block">
+<h:form>
+<h3>Assigner un professeur</h3>
+<h:panelGrid columns="2" >
+
+		<h:outputLabel value="ID du professeur: " />
+		<h:inputText value="#{professeurMB.professeur.id}" required="true" />
+		
+		<h:outputLabel value="ID du département : " />
+		<h:inputText value="#{professeurMB.departement.id}" />
+		
+		<br/>
+		<h:commandButton value="Assigner" action="#{professeurMB.assignerDepartement}"  style="margin-left : 30px" />
+	
+	</h:panelGrid>
+
+</h:form>
+</div>
+</div>
+
+<br/>
+<br/>
+<br/>
+<h3>Liste des professeurs </h3>
+
 </h:body>
 </html>

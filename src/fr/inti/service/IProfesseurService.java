@@ -2,6 +2,7 @@ package fr.inti.service;
 
 import java.util.List;
 
+import fr.inti.entities.Departement;
 import fr.inti.entities.Professeur;
 
 public interface IProfesseurService {
@@ -15,5 +16,7 @@ public interface IProfesseurService {
 	public List<Professeur> getAllProfesseurs();
 
 	public Professeur getProfesseurById(Professeur professeur);
+	
+	public Professeur AssignerDepartement(Professeur professeur,Departement departement);
 
 }

@@ -35,7 +35,7 @@ public class Professeur implements Serializable{
 	@Temporal(TemporalType.DATE)
 	@Column(name="date_aff")
 	private Date dateAff;
-
+	
 	// transformation UML en java
 
 	@ManyToOne

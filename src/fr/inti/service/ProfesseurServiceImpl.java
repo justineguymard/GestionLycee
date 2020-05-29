@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.inti.dao.IProfesseurDao;
 import fr.inti.dao.ProfesseurDaoImpl;
+import fr.inti.entities.Departement;
 import fr.inti.entities.Professeur;
 
 public class ProfesseurServiceImpl implements IProfesseurService {
@@ -38,6 +39,12 @@ public class ProfesseurServiceImpl implements IProfesseurService {
 	public Professeur getProfesseurById(Professeur professeur) {
 		// TODO Auto-generated method stub
 		return prDao.getProfesseurById(professeur);
+	}
+
+	@Override
+	public Professeur AssignerDepartement(Professeur professeur, Departement departement) {
+		// TODO Auto-generated method stub
+		return prDao.AssignerDepartement(professeur, departement);
 	}
 
 	
