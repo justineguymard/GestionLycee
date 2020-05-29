@@ -1,7 +1,10 @@
 package fr.inti.service;
 
+import java.util.List;
+
 import fr.inti.dao.EtudiantDaoImpl;
 import fr.inti.dao.IEtudiantDao;
+import fr.inti.entities.Departement;
 import fr.inti.entities.Etudiant;
 
 public class EtudiantServiceImpl implements IEtudiantService{
@@ -29,11 +32,6 @@ public class EtudiantServiceImpl implements IEtudiantService{
 	}
 	
 	
-	@Override
-	public Etudiant ModifierEtudiant2(Etudiant etudiant) {
-		// TODO Auto-generated method stub
-		return etDao.ModifierEtudiant(etudiant);
-	}
 
 	@Override
 	public int SupprimerEtudiant(Etudiant etudiant) {
@@ -41,7 +39,16 @@ public class EtudiantServiceImpl implements IEtudiantService{
 		return etDao.SupprimerEtudiant(etudiant);
 	}
 
+	@Override
+	public Etudiant AssignerEtudiant(Etudiant etudiant, Departement departement) {
+		
+		return etDao.AssignerDepartement(etudiant, departement);
+	}
 
+	public List<Etudiant> getAllEtudiants() {
+		return etDao.getAllEtudiants();
+		
+	}
 
 
 }

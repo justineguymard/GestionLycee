@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import fr.inti.entities.Departement;
 import fr.inti.entities.Etudiant;
 import fr.inti.service.EtudiantServiceImpl;
 import fr.inti.service.IEtudiantService;
@@ -21,8 +22,9 @@ public class EtudiantManagedBean implements Serializable {
 	private List <Etudiant> listeEtudiants;
 	
 	
+	
 	//association uml en java 
-	@SuppressWarnings("unused")
+	
 	private IEtudiantService etudiantService = new EtudiantServiceImpl();
 	
 	//Constructeur vide 
@@ -34,7 +36,8 @@ public class EtudiantManagedBean implements Serializable {
 	public void init () {
 		
 		this.etudiant = new Etudiant();
-		//this.listeEtudiants = etudiantService.getAllEtudiants();
+		this.listeEtudiants = etudiantService.getAllEtudiants();
+		this.etudiant.setDepartement(new Departement());
 		
 	}
 
@@ -64,14 +67,27 @@ public class EtudiantManagedBean implements Serializable {
 	}
 	
 	public String modifierEtudiant() {
-		return null;
+		int verif = etudiantService.ModifierEtudiant(this.etudiant);
+		if (verif != 0 ) {
+		return "etudiants";
+		} else {
+			return "accueil";
+		}
 		
 	}
+	
+
 	
 	public String supprimerEtudiant() {
-		return null;
+		etudiantService.SupprimerEtudiant(this.etudiant);
+		return  "etudiants";
 		
 	}
 	
+	
+	public String assignerDepartement() {
+		etudiantService.AssignerEtudiant(this.etudiant, this.etudiant.getDepartement() );
+		return "etudiants";
+	}
 
 }

@@ -55,7 +55,7 @@
 		<h:inputText value="#{etudiantMB.etudiant.prenom}" />
 		
 		<br/>
-		<h:commandButton value="Modifier" action="#"  style="margin-left : 30px"/>
+		<h:commandButton value="Modifier" action="#{etudiantMB.modifierEtudiant}"  style="margin-left : 30px"/>
 	
 	</h:panelGrid>
 
@@ -73,7 +73,7 @@
 		<h:inputText value="#{etudiantMB.etudiant.id}" required="true" />
 	
 		<br/>
-		<h:commandButton value="Supprimer" action="#" style="margin-left : 30px" />
+		<h:commandButton value="Supprimer" action="#{etudiantMB.supprimerEtudiant}" style="margin-left : 30px" />
 	
 	</h:panelGrid>
 
@@ -94,7 +94,7 @@
 		<h:inputText value="#{etudiantMB.etudiant.departement.id}" />
 		
 		<br/>
-		<h:commandButton value="Assigner" action="#"  style="margin-left : 30px" />
+		<h:commandButton value="Assigner" action="#{etudiantMB.assignerDepartement}"  style="margin-left : 30px" />
 	
 	</h:panelGrid>
 
@@ -106,6 +106,26 @@
 <br/>
 <br/>
 <h3>Liste des étudiants </h3>
+
+
+<p:dataTable id="tbl1" var="et" value="#{etudiantMB.listeEtudiants}"  >
+		<p:column headerText="ID"  style="width : 30px" >
+			<h:outputText value="#{et.id}" />
+		</p:column>
+
+		<p:column headerText="Nom">
+			<h:outputText value="#{et.nom}" />
+		</p:column>
+		<p:column headerText="Prenom">
+			<h:outputText value="#{et.prenom}" />
+		</p:column>
+		<p:column headerText="Departement">
+			<h:outputText value="#{et.departement.nom} (#{et.departement.id})"  rendered="#{et.departement.id != NULL}" />
+			<h:outputText value="Non associé à un département" rendered="#{et.departement.id == NULL}" />
+			
+		</p:column>
+		
+	</p:dataTable>
 
 </h:body>
 </html>
