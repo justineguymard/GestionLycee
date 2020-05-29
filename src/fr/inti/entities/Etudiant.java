@@ -98,7 +98,7 @@ public class Etudiant implements Serializable {
 // redefinition du toString
 	@Override
 	public String toString() {
-		return "Etudiant [id=" + id + ", nom=" + nom + ", prenom=" + prenom + "]";
+		return "#" + id + ", " + nom + ", " + prenom + "";
 	}
 
 	

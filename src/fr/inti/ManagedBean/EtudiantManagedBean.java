@@ -83,9 +83,7 @@ public class EtudiantManagedBean implements Serializable {
 		}
 		
 	}
-	
 
-	
 	public String supprimerEtudiant() {
 		etudiantService.SupprimerEtudiant(this.etudiant);
 		return  "etudiantSupprimer";
@@ -97,5 +95,18 @@ public class EtudiantManagedBean implements Serializable {
 		etudiantService.AssignerEtudiant(this.etudiant, this.departement );
 		return "etudiantAssignerDepartement";
 	}
+	
+	public Etudiant getEtudiant(Integer id) {
+		if (id == null ) {
+			throw new IllegalArgumentException ("no id provided");
+		}
+		for (Etudiant etudiant : listeEtudiants) {
+			if (id.equals(etudiant.getId())) {
+				return etudiant;
+			}
+		}
+		return null;
+	}
+	
 
 }

@@ -18,6 +18,7 @@
 
 	<h1 style="text-align: center">Liste des étudiants</h1>
 
+	
 
 
 	<p:dataTable id="tbl1" var="et" value="#{etudiantMB.listeEtudiants}">
@@ -25,10 +26,10 @@
 			<h:outputText value="#{et.id}" />
 		</p:column>
 
-		<p:column headerText="Nom">
+		<p:column headerText="Nom"  style="width : 130px">
 			<h:outputText value="#{et.nom}" />
 		</p:column>
-		<p:column headerText="Prenom">
+		<p:column headerText="Prenom"  style="width : 130px">
 			<h:outputText value="#{et.prenom}" />
 		</p:column>
 		<p:column headerText="Departement (ID)">
@@ -37,6 +38,9 @@
 			<h:outputText value="Non associé(e) à un département"
 				rendered="#{et.departement.id == NULL}" />
 
+		</p:column>
+		<p:column headerText="Opérations" >
+			<h:outputText value="Modifier | Supprimer | Assigner" />
 		</p:column>
 
 	</p:dataTable>

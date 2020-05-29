@@ -8,19 +8,57 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>TITRE</title>
+	<title>Etudiant</title>
 </h:head>
 <h:body>
 
-<ui:insert name = "header" >
-      <ui:include src = "template/header.xhtml" />
-</ui:insert>
+	<ui:insert name="header">
+		<ui:include src="template/header.xhtml" />
+	</ui:insert>
 
-<h1 style="text-align: center">TITRE</h1>
+	<h1 style="text-align: center">Supprimer un étudiant</h1>
 
-<ui:insert name = "footer" >
-      <ui:include src = "./template/footer.xhtml" />
-</ui:insert>
+	<h:form>
+
+		<p:selectOneMenu id="longItemLabel" value="#{etudiantMB.etudiant}"
+			dynamic="true" >
+
+			<f:converter converterId="ConvertisseurEtudiant" />
+			<f:selectItems value="#{etudiantMB.listeEtudiants}" var="etudiant"
+				itemValue="#{etudiant}"
+				itemLabel="#{etudiant.id}, #{etudiant.nom}, #{etudiant.prenom}" />
+				<f:selectItem itemLabel="Selectionnez un étudiant à supprimer" 
+							itemValue="#{etudiantMB.listeEtudiants}" /> 
+
+					<f:selectItems value="#{etudiantMB.listeEtudiants}"  /> 
+
+		</p:selectOneMenu>
+ 		<h:commandButton value="Supprimer" 
+			action="#{etudiantMB.supprimerEtudiant}" style="margin-left : 30px" ></h:commandButton>
+			
+	</h:form>
+
+
+	<br />
+	<br />
+
+
+
+	<!-- 			<h:form> -->
+	<!-- 				<h:panelGrid columns="2"> -->
+
+	<!-- 				<h:outputLabel value="Ou précisez son ID: " /> -->
+	<!-- 				<h:inputText value="#{etudiantMB.etudiant.id}" required="true" /> -->
+
+	<!-- 				<br /> -->
+	<!-- 				<h:commandButton value="Supprimer" -->
+	<!-- 					action="#{etudiantMB.supprimerEtudiant}" style="margin-left : 30px" /> -->
+
+	<!-- 			</h:panelGrid> -->
+
+	<!-- 		</h:form> -->
+
+
 
 
 </h:body>

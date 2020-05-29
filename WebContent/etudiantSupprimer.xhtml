@@ -16,29 +16,28 @@
 		<ui:include src="template/header.xhtml" />
 	</ui:insert>
 
-	<h1 style="text-align: center">Gestion des étudiants</h1>
+	<h1 style="text-align: center">Supprimer un étudiant</h1>
+
+	<h:form>
+
+		<p:selectOneMenu id="longItemLabel" value="#{etudiantMB.etudiant}"
+			dynamic="true" >
+
+			<f:converter converterId="ConvertisseurEtudiant" />
+			<f:selectItems value="#{etudiantMB.listeEtudiants}" var="etudiant"
+				itemValue="#{etudiant}"
+				itemLabel="#{etudiant.id}, #{etudiant.nom}, #{etudiant.prenom}" />
+				
+
+		</p:selectOneMenu>
+ 		<h:commandButton value="Supprimer" 
+			action="#{etudiantMB.supprimerEtudiant}" style="margin-left : 30px" ></h:commandButton>
+			
+	</h:form>
 
 
-
-		<div style="display: inline-block">
-			<h:form>
-				<h3>Supprimer un étudiant</h3>
-				<h:panelGrid columns="2">
-
-					<h:outputLabel value="ID: " />
-					<h:inputText value="#{etudiantMB.etudiant.id}" required="true" />
-
-					<br />
-					<h:commandButton value="Supprimer"
-						action="#{etudiantMB.supprimerEtudiant}"
-						style="margin-left : 30px" />
-
-				</h:panelGrid>
-
-			</h:form>
-		</div>
-
-
+	<br />
+	<br />
 
 
 </h:body>
