@@ -10,7 +10,7 @@ public interface IMatiereService {
 
 	public Matiere ModifierMatiere(Matiere matiere);
 
-	public Matiere SupprimerMatiere(Matiere matiere);
+	public int SupprimerMatiere(Matiere matiere);
 	
 	public List<Matiere> getAllMatieres();
 

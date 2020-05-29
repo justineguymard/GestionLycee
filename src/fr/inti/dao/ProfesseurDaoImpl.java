@@ -9,7 +9,6 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import fr.inti.entities.Departement;
-import fr.inti.entities.Etudiant;
 import fr.inti.entities.Matiere;
 import fr.inti.entities.Professeur;
 

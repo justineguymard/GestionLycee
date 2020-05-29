@@ -8,19 +8,32 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>TITRE</title>
+	<title>Matière</title>
 </h:head>
 <h:body>
 
-<ui:insert name = "header" >
-      <ui:include src = "template/header.xhtml" />
-</ui:insert>
+<ui:insert name="header">
+		<ui:include src="/ressources/template/header.xhtml" />
+	</ui:insert>
+	
+	<h1>Ajouter une matière</h1>
 
-<h1 style="text-align: center">TITRE</h1>
+			<h:form>
+				
+				<h:panelGrid columns="2">
 
-<ui:insert name = "footer" >
-      <ui:include src = "./template/footer.xhtml" />
-</ui:insert>
+					<h:outputLabel value="Intitulé de la matière : " />
+					<h:inputText value="#{matiereMB.matiere.intitule}" required="true" />
+
+
+					<br />
+					<h:commandButton value="Ajouter"
+						action="#{matiereMB.ajouterMatiere}" style="text-align : center" />
+
+				</h:panelGrid>
+
+			</h:form>
+		
 
 
 </h:body>

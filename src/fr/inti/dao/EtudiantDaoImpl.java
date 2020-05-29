@@ -43,7 +43,7 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 	}
 
 	@Override
-	public Etudiant ModifierEtudiant(Etudiant etudiant) {
+	public Etudiant modifierEtudiant(Etudiant etudiant) {
 		// creation d'un entityManagerFactory
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("puGestionLycee");
 
@@ -78,7 +78,7 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 	}
 
 	@Override
-	public int SupprimerEtudiant(Etudiant etudiant) {
+	public int supprimerEtudiant(Etudiant etudiant) {
 		// creation d'un entityManagerFactory
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("puGestionLycee");
 
@@ -117,7 +117,7 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 	}
 
 	@Override
-	public Etudiant AssignerDepartement(Etudiant etudiant, Departement departement) {
+	public Etudiant assignerDepartement(Etudiant etudiant, Departement departement) {
 		// creation d'un entityManagerFactory
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("puGestionLycee");
 

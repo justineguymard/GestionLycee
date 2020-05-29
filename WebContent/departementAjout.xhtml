@@ -8,19 +8,31 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>TITRE</title>
+	<title>Ajouter un département</title>
 </h:head>
 <h:body>
 
-<ui:insert name = "header" >
-      <ui:include src = "template/header.xhtml" />
-</ui:insert>
+<ui:insert name="header">
+		<ui:include src="/ressources/template/header.xhtml" />
+	</ui:insert>
+	
+		<h1>Ajouter un département</h1>
 
-<h1 style="text-align: center">TITRE</h1>
+			<h:form>
+			
+				<h:panelGrid columns="2">
 
-<ui:insert name = "footer" >
-      <ui:include src = "./template/footer.xhtml" />
-</ui:insert>
+					<h:outputLabel value="Nom: " />
+					<h:inputText value="#{departementMB.departement.nom}" required="true" />
+
+					<br />
+					<h:commandButton value="Ajouter"
+						action="#{departementMB.ajouterDepartement}" style="text-align : center" />
+
+				</h:panelGrid>
+
+			</h:form>
+		
 
 
 </h:body>

@@ -6,7 +6,7 @@ import fr.inti.entities.Departement;
 
 public interface IDepartementDao {
 	
-public Departement AjouterDepartement(Departement departement);
+	public Departement AjouterDepartement(Departement departement);
 	
 	public Departement ModifierDepartement (Departement departement);
 	

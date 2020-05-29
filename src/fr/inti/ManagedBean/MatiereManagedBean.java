@@ -1,5 +1,6 @@
 package fr.inti.ManagedBean;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -10,10 +11,11 @@ import fr.inti.entities.Matiere;
 import fr.inti.service.IMatiereService;
 import fr.inti.service.MatiereServiceImpl;
 
+
 @SuppressWarnings("serial")
 @ManagedBean(name = "matiereMB")
 @RequestScoped
-public class MatiereManagedBean {
+public class MatiereManagedBean implements Serializable {
 	
 	// attributs
 		private Matiere matiere;
@@ -58,13 +60,14 @@ public class MatiereManagedBean {
 
 		public String ajouterMatiere() {
 			matiereService.ajouterMatiere(this.matiere);
+			
 			return "matiereAjout";
 
 		}
 
 		public String modifierMatiere() {
 			
-			matiereService.ModifierMatiere(matiere);
+			matiereService.ModifierMatiere(this.matiere);
 			return "matiereModifier";
 
 		}

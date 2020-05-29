@@ -10,7 +10,7 @@ public Matiere AjouterMatiere(Matiere matiere);
 	
 	public Matiere ModifierMatiere (Matiere matiere);
 	
-	public int SupprimerMatiere(Matiere matiere);
+	public void SupprimerMatiere(Matiere matiere);
 
 	public List<Matiere> getAllMatieres ();
 }

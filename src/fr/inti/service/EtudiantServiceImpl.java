@@ -18,33 +18,29 @@ public class EtudiantServiceImpl implements IEtudiantService{
 	}
 
 	@Override
-	public int ModifierEtudiant(Etudiant etudiant) {
+	public int modifierEtudiant(Etudiant etudiant) {
 		
-		Etudiant etVerif = etDao.ModifierEtudiant(etudiant);
+		Etudiant etVerif = etDao.modifierEtudiant(etudiant);
 		
 		if (etVerif != null ) {
 			return 1;
 		} else {
 			return 0;
 		}
-		
-		
 	}
 	
-	
-
 	@Override
-	public int SupprimerEtudiant(Etudiant etudiant) {
+	public int supprimerEtudiant(Etudiant etudiant) {
 		// TODO Auto-generated method stub
-		return etDao.SupprimerEtudiant(etudiant);
+		return etDao.supprimerEtudiant(etudiant);
 	}
 
 	@Override
-	public Etudiant AssignerEtudiant(Etudiant etudiant, Departement departement) {
+	public Etudiant assignerEtudiant(Etudiant etudiant, Departement departement) {
 		
 		
 		
-		return etDao.AssignerDepartement(etudiant, departement);
+		return etDao.assignerDepartement(etudiant, departement);
 	}
 
 	public List<Etudiant> getAllEtudiants() {

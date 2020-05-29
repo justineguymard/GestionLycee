@@ -10,11 +10,11 @@ public interface IEtudiantDao {
 	
 	public Etudiant ajouterEtudiant (Etudiant etudiant);
 	
-	public Etudiant ModifierEtudiant (Etudiant etudiant);
+	public Etudiant modifierEtudiant (Etudiant etudiant);
 	
-	public int SupprimerEtudiant (Etudiant etudiant);
+	public int supprimerEtudiant (Etudiant etudiant);
 	
-	public Etudiant AssignerDepartement (Etudiant etudiant, Departement departement);
+	public Etudiant assignerDepartement (Etudiant etudiant, Departement departement);
 	
 	public List<Etudiant> getAllEtudiants ();
 

@@ -8,9 +8,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import fr.inti.entities.Etudiant;
 import fr.inti.entities.Matiere;
-import fr.inti.entities.Professeur;
+
 
 public class MatiereDaoImpl implements IMatiereDao{
 
@@ -58,7 +57,7 @@ public class MatiereDaoImpl implements IMatiereDao{
 			tx.begin();
 
 			// recuperer l'étudiant à modifier
-		Matiere MatiereModif = em.find(Matiere.class, matiere.getId());
+			Matiere MatiereModif = em.find(Matiere.class, matiere.getId());
 
 			// Modifier l'étudiant en java
 			MatiereModif.setIntitule(matiere.getIntitule());
@@ -79,7 +78,7 @@ public class MatiereDaoImpl implements IMatiereDao{
 	}
 
 	@Override
-	public int SupprimerMatiere(Matiere matiere) {
+	public void SupprimerMatiere(Matiere matiere) {
 		
 		// creation d'un entityManagerFactory
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("puGestionLycee");
@@ -96,16 +95,7 @@ public class MatiereDaoImpl implements IMatiereDao{
 		// recuperer l'étudiant à modifier
 		Matiere MatiereSuppression = em.find(Matiere.class, matiere.getId());
 
-		// instauration d'une verif
-		int verif = 0;
-
-		if (MatiereSuppression != null) { // si trouvé suppresion
-			// suppression
-			verif++;
-
-		} else {
-		}
-
+		
 		em.remove(MatiereSuppression);
 
 		// ferme transaction
@@ -115,7 +105,7 @@ public class MatiereDaoImpl implements IMatiereDao{
 		em.close();
 		emf.close();
 
-		return verif;
+		
 	}
 
 	@Override

@@ -11,15 +11,38 @@
 	<title>TITRE</title>
 </h:head>
 <h:body>
-
-<ui:insert name = "header" >
-      <ui:include src = "template/header.xhtml" />
-</ui:insert>
+<ui:insert name="header">
+		<ui:include src="/ressources/template/header.xhtml" />
+	</ui:insert>
 
 <h1 style="text-align: center">TITRE</h1>
 
+
+<div style="display: inline-block">
+<h:form>
+<h3>Modifier un professeur</h3>
+<h:panelGrid columns="2" >
+
+		<h:outputLabel value="ID: " />
+		<h:inputText value="#{professeurMB.professeur.id}" required="true" />
+		
+		<h:outputLabel value="Nom: " />
+		<h:inputText value="#{professeurMB.professeur.nom}" />
+		
+		<h:outputLabel value="Prenom: " />
+		<h:inputText value="#{professeurMB.professeur.prenom}" />
+		
+		<br/>
+		<h:commandButton value="Modifier" action="#{professeurMB.modifierProfesseur}"  style="margin-left : 30px"/>
+	
+	</h:panelGrid>
+
+</h:form>
+</div>
+
+
 <ui:insert name = "footer" >
-      <ui:include src = "./template/footer.xhtml" />
+      <ui:include src = "/ressources/template/footer.xhtml" />
 </ui:insert>
 
 

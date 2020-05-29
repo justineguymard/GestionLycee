@@ -8,125 +8,20 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>professeur</title>
+	<title>Liste des professeurs</title>
 </h:head>
 <h:body>
 
-<ui:insert name = "header" >
-      <ui:include src = "template/header.xhtml" />
-</ui:insert>
+<ui:insert name="header">
+		<ui:include src="/ressources/template/header.xhtml" />
+	</ui:insert>
 
-<h1 style="text-align: center">Gestion des Professeurs </h1>
+<h1 style="text-align: center">Liste des Professeurs </h1>
 
 
 <br/>
-<div style="display : block; text-align :center">
-<div style="display: inline-block">
-<h:form>
-<h3>Ajouter un professeur</h3>
-<h:panelGrid columns="2" >
-
-		<h:outputLabel value="Nom: " />
-		<h:inputText value="#{professeurMB.professeur.nom}" required="true" />
-		
-		<h:outputLabel value="Prenom: " />
-		<h:inputText value="#{professeurMB.professeur.prenom}" required="true" />
-		
-			<h:outputLabel value="Date : " />
-		 <p:calendar id="popup" value="#{professeurMB.professeur.dateAff}" />
-		
-		<br/>
-		<h:commandButton value="Ajouter" action="#{professeurMB.ajouterProfesseur}"  style="margin-left : 30px"/>
-	
-	</h:panelGrid>
-
-</h:form>
-</div >
-
-<div style="display: inline-block">
-<h:form>
-<h3>Modifier un professeur</h3>
-<h:panelGrid columns="2" >
-
-		<h:outputLabel value="ID: " />
-		<h:inputText value="#{professeurMB.professeur.id}" required="true" />
-		
-		<h:outputLabel value="Nom: " />
-		<h:inputText value="#{professeurMB.professeur.nom}" />
-		
-		<h:outputLabel value="Prenom: " />
-		<h:inputText value="#{professeurMB.professeur.prenom}" />
-		
-		<br/>
-		<h:commandButton value="Modifier" action="#{professeurMB.modifierProfesseur}"  style="margin-left : 30px"/>
-	
-	</h:panelGrid>
-
-</h:form>
-</div>
 
 
-
-<div style="display: inline-block">
-<h:form>
-<h3>Supprimer un professeur </h3>
-<h:panelGrid columns="2" >
-
-		<h:outputLabel value="ID: " />
-		<h:inputText value="#{professeurMB.professeur.id}" required="true" />
-	
-		<br/>
-		<h:commandButton value="Supprimer" action="#{professeurMB.supprimerProfesseur}" style="margin-left : 30px" />
-	
-	</h:panelGrid>
-
-</h:form>
-</div>
-
-
-
-<div style="display: inline-block">
-<h:form>
-<h3>Assigner un departement</h3>
-<h:panelGrid columns="2" >
-
-		<h:outputLabel value="ID du professeur: " />
-		<h:inputText value="#{professeurMB.professeur.id}" required="true" />
-		
-		<h:outputLabel value="ID du département : " />
-		<h:inputText value="#{professeurMB.departement.id}" />
-		
-		<br/>
-		<h:commandButton value="Assigner" action="#{professeurMB.assignerDepartement}"  style="margin-left : 30px" />
-	
-	</h:panelGrid>
-
-</h:form>
-</div>
-
-<div style="display: inline-block">
-<h:form>
-<h3>Assigner une matiere</h3>
-<h:panelGrid columns="2" >
-
-		<h:outputLabel value="ID du professeur: " />
-		<h:inputText value="#{professeurMB.professeur.id}" required="true" />
-		
-		<h:outputLabel value="ID de la matiere : " />
-		<h:inputText value="#{professeurMB.matiere.id}" />
-		
-		<br/>
-		<h:commandButton value="Assigner" action="#{professeurMB.assignerMatiere}"  style="margin-left : 30px" />
-	
-	</h:panelGrid>
-
-</h:form>
-</div>
-</div>
-
-<br/>
-<br/>
-<br/>
 <h3>Liste des professeurs </h3>
 
 <p:dataTable id="tbl2" var="pr" value="#{professeurMB.listeProfesseurs}">

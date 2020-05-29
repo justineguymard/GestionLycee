@@ -11,15 +11,35 @@
 	<title>TITRE</title>
 </h:head>
 <h:body>
-
-<ui:insert name = "header" >
-      <ui:include src = "template/header.xhtml" />
-</ui:insert>
+<ui:insert name="header">
+		<ui:include src="/ressources/template/header.xhtml" />
+	</ui:insert>
 
 <h1 style="text-align: center">TITRE</h1>
 
+
+<div style="display: inline-block">
+<h:form>
+<h3>Assigner une matiere</h3>
+<h:panelGrid columns="2" >
+
+		<h:outputLabel value="ID du professeur: " />
+		<h:inputText value="#{professeurMB.professeur.id}" required="true" />
+		
+		<h:outputLabel value="ID de la matiere : " />
+		<h:inputText value="#{professeurMB.matiere.id}" />
+		
+		<br/>
+		<h:commandButton value="Assigner" action="#{professeurMB.assignerMatiere}"  style="margin-left : 30px" />
+	
+	</h:panelGrid>
+
+</h:form>
+</div>
+
+
 <ui:insert name = "footer" >
-      <ui:include src = "./template/footer.xhtml" />
+      <ui:include src = "/ressources/template/footer.xhtml" />
 </ui:insert>
 
 

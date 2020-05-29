@@ -10,11 +10,11 @@ public interface IEtudiantService {
 	
 	public Etudiant ajouterEtudiant(Etudiant etudiant);
 
-	public int ModifierEtudiant(Etudiant etudiant);
+	public int modifierEtudiant(Etudiant etudiant);
 
-	public int SupprimerEtudiant(Etudiant etudiant);
+	public int supprimerEtudiant(Etudiant etudiant);
 	
-	public Etudiant AssignerEtudiant(Etudiant etudiant, Departement departement);
+	public Etudiant assignerEtudiant(Etudiant etudiant, Departement departement);
 	
 	public List<Etudiant> getAllEtudiants();
 

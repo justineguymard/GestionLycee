@@ -75,7 +75,7 @@ public class EtudiantManagedBean implements Serializable {
 	}
 	
 	public String modifierEtudiant() {
-		int verif = etudiantService.ModifierEtudiant(this.etudiant);
+		int verif = etudiantService.modifierEtudiant(this.etudiant);
 		if (verif != 0 ) {
 		return "etudiantModifier";
 		} else {
@@ -85,14 +85,14 @@ public class EtudiantManagedBean implements Serializable {
 	}
 
 	public String supprimerEtudiant() {
-		etudiantService.SupprimerEtudiant(this.etudiant);
+		etudiantService.supprimerEtudiant(this.etudiant);
 		return  "etudiantSupprimer";
 		
 	}
 	
 	
 	public String assignerDepartement() {
-		etudiantService.AssignerEtudiant(this.etudiant, this.departement );
+		etudiantService.assignerEtudiant(this.etudiant, this.departement );
 		return "etudiantAssignerDepartement";
 	}
 	
