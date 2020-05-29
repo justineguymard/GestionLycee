@@ -15,16 +15,32 @@ public class EtudiantServiceImpl implements IEtudiantService{
 	}
 
 	@Override
-	public int ModifierEtudiant() {
+	public int ModifierEtudiant(Etudiant etudiant) {
+		
+		Etudiant etVerif = etDao.ModifierEtudiant(etudiant);
+		
+		if (etVerif != null ) {
+			return 1;
+		} else {
+			return 0;
+		}
+		
+		
+	}
+	
+	
+	@Override
+	public Etudiant ModifierEtudiant2(Etudiant etudiant) {
 		// TODO Auto-generated method stub
-		return 0;
+		return etDao.ModifierEtudiant(etudiant);
 	}
 
 	@Override
-	public int SupprimerEtudiant() {
+	public int SupprimerEtudiant(Etudiant etudiant) {
 		// TODO Auto-generated method stub
-		return 0;
+		return etDao.SupprimerEtudiant(etudiant);
 	}
+
 
 
 

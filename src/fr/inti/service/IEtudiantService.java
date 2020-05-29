@@ -10,8 +10,10 @@ public interface IEtudiantService {
 
 	public Etudiant ajouterEtudiant(Etudiant etudiant);
 
-	public int ModifierEtudiant();
+	public int ModifierEtudiant(Etudiant etudiant);
+	
+	public Etudiant ModifierEtudiant2(Etudiant etudiant);
 
-	public int SupprimerEtudiant();
+	public int SupprimerEtudiant(Etudiant etudiant);
 
 }
