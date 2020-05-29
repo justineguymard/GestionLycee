@@ -5,7 +5,7 @@ import fr.inti.entities.Etudiant;
 public interface IEtudiantDao {
 	
 	
-	public void ajouterEtudiant (Etudiant etudiant);
+	public Etudiant ajouterEtudiant (Etudiant etudiant);
 	
 	public int ModifierEtudiant (Etudiant etudiant);
 	

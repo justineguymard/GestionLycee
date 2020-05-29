@@ -30,7 +30,7 @@ public class Etudiant implements Serializable {
 		
 	//transformation de l'association UML en 
 	@ManyToOne
-	@JoinColumn(name="id_dpt_etudiant", referencedColumnName="id_d" )
+	@JoinColumn(name="departement_id", referencedColumnName="id_d" )
 	private Departement departement;
 	
 	//Constructeur 

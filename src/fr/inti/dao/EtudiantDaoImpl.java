@@ -9,9 +9,12 @@ import javax.persistence.Persistence;
 import fr.inti.entities.Etudiant;
 
 public class EtudiantDaoImpl implements IEtudiantDao {
+	
+	
+	
 
 	@Override
-	public void ajouterEtudiant(Etudiant etudiant) {
+	public Etudiant ajouterEtudiant(Etudiant etudiant) {
 		
 		//creation d'un entityManagerFactory
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("puGestionLycee");
@@ -25,11 +28,9 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 		//ouvrir une transaction (commencer une transaction)
 		tx.begin();
 		
-		//Instancier l'objet venant du formulaire
-		Etudiant e1 = new Etudiant(etudiant.getNom(), etudiant.getPrenom());
 		
 		//rendre l'objet persistant
-		em.persist(e1);
+		em.persist(etudiant);
 		
 		//ferme transaction
 		tx.commit();
@@ -37,6 +38,8 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 		//ferme flux
 		em.close();
 		emf.close();
+		
+		return etudiant;
 
 		 
 	}

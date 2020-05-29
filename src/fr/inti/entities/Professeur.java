@@ -1,6 +1,7 @@
 package fr.inti.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="professeurs")
@@ -29,16 +32,18 @@ public class Professeur implements Serializable{
 	@Column(name="prenom_p")
 	private String prenom;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name="date_aff")
-	private String dateAff;
+	private Date dateAff;
 
 	// transformation UML en java
 
-	@OneToOne(mappedBy="professeur")
+	@ManyToOne
+	@JoinColumn(name = "matiere_id", referencedColumnName = "id_m")
 	private Matiere matiere;
 	
 	@ManyToOne
-	@JoinColumn(name="id_dpt_professeur" , referencedColumnName="id_d")
+	@JoinColumn(name="departement_id" , referencedColumnName="id_d")
 	private Departement departement;
 
 	// declaration des constructeurs
@@ -47,14 +52,14 @@ public class Professeur implements Serializable{
 		super();
 	}
 
-	public Professeur(String nom, String prenom, String dateAff) {
+	public Professeur(String nom, String prenom, Date dateAff) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateAff = dateAff;
 	}
 
-	public Professeur(int id, String nom, String prenom, String dateAff) {
+	public Professeur(int id, String nom, String prenom, Date dateAff) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -87,11 +92,11 @@ public class Professeur implements Serializable{
 		this.prenom = prenom;
 	}
 
-	public String getDateAff() {
+	public Date getDateAff() {
 		return dateAff;
 	}
 
-	public void setDateAff(String dateAff) {
+	public void setDateAff(Date dateAff) {
 		this.dateAff = dateAff;
 	}
 

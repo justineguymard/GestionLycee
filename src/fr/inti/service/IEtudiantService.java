@@ -8,7 +8,7 @@ public interface IEtudiantService {
 
 	
 
-	public void ajouterEtudiant(Etudiant etudiant);
+	public Etudiant ajouterEtudiant(Etudiant etudiant);
 
 	public int ModifierEtudiant();
 

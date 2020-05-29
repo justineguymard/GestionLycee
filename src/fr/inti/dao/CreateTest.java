@@ -25,16 +25,16 @@ public class CreateTest {
 		
 		//instancier les objets dan la bd 
 		Etudiant e1=new Etudiant("TOTO","Titi");
-		Etudiant e2=new Etudiant("FOFO","Fifi");
-		Etudiant e3=new Etudiant("YOYO","Yiyi");
+		//Etudiant e2=new Etudiant("FOFO","Fifi");
+		//Etudiant e3=new Etudiant("YOYO","Yiyi");
 	
 
 		//rendre les objets persistents (lier ces objets au context)
 		em.persist(e1);
-		em.persist(e2);
-		em.persist(e3);
+		//em.persist(e2);
+		//em.persist(e3);
 		
-		
+		System.out.println(e1);
 		tx.commit(); //em.gettransaction.commit
 		
 		em.close();

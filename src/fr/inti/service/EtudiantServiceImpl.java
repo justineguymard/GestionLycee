@@ -10,8 +10,8 @@ public class EtudiantServiceImpl implements IEtudiantService{
 	private IEtudiantDao etDao = new EtudiantDaoImpl();
 	
 	@Override
-	public void ajouterEtudiant(Etudiant etudiant) {
-		etDao.ajouterEtudiant(etudiant);
+	public Etudiant ajouterEtudiant(Etudiant etudiant) {
+		return etDao.ajouterEtudiant(etudiant);
 	}
 
 	@Override

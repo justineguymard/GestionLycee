@@ -7,7 +7,7 @@
 		<!-- Spéicifer l'implémentation de jpa utilisée (le fournisseur de l'implémentation) -->
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
 	
-	<!-- Declaration de toutes les classes persistantes  -->
+	<!-- Declaration de toutes les classes persistantes (LEs entitties persistantes)  -->
 	<class>fr.inti.entities.Departement</class>
 	<class>fr.inti.entities.Etudiant</class>
 	<class>fr.inti.entities.Matiere</class>
@@ -22,11 +22,11 @@
 
     <!-- Spéficier la stratégie de la génération des tables -->
     <property
-        name="javax.persistence.schema-generation.database.action" value="create" />
-    <!-- Les valeurs possibles sont: 'none', 'create', 'drop-and-create', 'drop' -->
+        name="hibernate.hbm2ddl.auto" value="update" />
+
     
     <!-- Afficher les requêtes SQL générée automatique -->
-    <property name="hibernate.show_sql" value="FINE"/>
+    <property name="hibernate.show_sql" value="true"/>
     
     
     
