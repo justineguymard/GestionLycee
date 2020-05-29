@@ -20,7 +20,6 @@ public class EtudiantManagedBean implements Serializable {
 	//attributs 
 	private Etudiant etudiant;
 	private List <Etudiant> listeEtudiants;
-	
 	private Departement  departement;
 	//association uml en java 
 	
