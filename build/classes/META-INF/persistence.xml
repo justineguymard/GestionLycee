@@ -2,7 +2,7 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	
 	
-<persistence-unit name="pu_gestionLycee" transaction-type="RESOURCE_LOCAL" >
+<persistence-unit name="puGestionLycee" transaction-type="RESOURCE_LOCAL" >
 	
 		<!-- Spéicifer l'implémentation de jpa utilisée (le fournisseur de l'implémentation) -->
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
@@ -27,6 +27,8 @@
     
     <!-- Afficher les requêtes SQL générée automatique -->
     <property name="hibernate.show_sql" value="FINE"/>
+    
+    
     
 
 	

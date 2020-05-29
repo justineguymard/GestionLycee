@@ -14,7 +14,7 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 	public void ajouterEtudiant(Etudiant etudiant) {
 		
 		//creation d'un entityManagerFactory
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_gestionLycee");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("puGestionLycee");
 		
 		//creation d'un entityManager à partir de emf
 		EntityManager em = emf.createEntityManager();
