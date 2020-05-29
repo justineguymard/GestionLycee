@@ -19,27 +19,6 @@
 	<h1 style="text-align: center">Gestion des étudiants</h1>
 
 
-	<br />
-	<div style="display: block; text-align: center">
-		<div style="display: inline-block">
-			<h:form>
-				<h3>Ajouter un étudiant</h3>
-				<h:panelGrid columns="2">
-
-					<h:outputLabel value="Nom: " />
-					<h:inputText value="#{etudiantMB.etudiant.nom}" required="true" />
-
-					<h:outputLabel value="Prenom: " />
-					<h:inputText value="#{etudiantMB.etudiant.prenom}" required="true" />
-
-					<br />
-					<h:commandButton value="Ajouter"
-						action="#{etudiantMB.ajouterEtudiant}" style="margin-left : 30px" />
-
-				</h:panelGrid>
-
-			</h:form>
-		</div>
 
 		<div style="display: inline-block">
 			<h:form>
@@ -66,75 +45,6 @@
 		</div>
 
 
-
-		<div style="display: inline-block">
-			<h:form>
-				<h3>Supprimer un étudiant</h3>
-				<h:panelGrid columns="2">
-
-					<h:outputLabel value="ID: " />
-					<h:inputText value="#{etudiantMB.etudiant.id}" required="true" />
-
-					<br />
-					<h:commandButton value="Supprimer"
-						action="#{etudiantMB.supprimerEtudiant}"
-						style="margin-left : 30px" />
-
-				</h:panelGrid>
-
-			</h:form>
-		</div>
-
-
-
-		<div style="display: inline-block">
-			<h:form>
-				<h3>Assigner un étudiant</h3>
-				<h:panelGrid columns="2">
-
-					<h:outputLabel value="ID de l'étudiant: " />
-					<h:inputText value="#{etudiantMB.etudiant.id}" required="true" />
-
-					<h:outputLabel value="ID du département : " />
-					<h:inputText value="#{etudiantMB.departement.id}" />
-
-					<br />
-					<h:commandButton value="Assigner"
-						action="#{etudiantMB.assignerDepartement}"
-						style="margin-left : 30px" />
-
-				</h:panelGrid>
-
-			</h:form>
-		</div>
-	</div>
-
-	<br />
-	<br />
-	<br />
-	<h3>Liste des étudiants</h3>
-
-
-	<p:dataTable id="tbl1" var="et" value="#{etudiantMB.listeEtudiants}">
-		<p:column headerText="ID" style="width : 30px">
-			<h:outputText value="#{et.id}" />
-		</p:column>
-
-		<p:column headerText="Nom">
-			<h:outputText value="#{et.nom}" />
-		</p:column>
-		<p:column headerText="Prenom">
-			<h:outputText value="#{et.prenom}" />
-		</p:column>
-		<p:column headerText="Departement (ID)">
-			<h:outputText value="#{et.departement.nom} (#{et.departement.id})"
-				rendered="#{et.departement.id != NULL}" />
-			<h:outputText value="Non associé(e) à un département"
-				rendered="#{et.departement.id == NULL}" />
-
-		</p:column>
-
-	</p:dataTable>
 
 </h:body>
 </html>
