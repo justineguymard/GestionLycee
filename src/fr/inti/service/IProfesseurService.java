@@ -3,6 +3,7 @@ package fr.inti.service;
 import java.util.List;
 
 import fr.inti.entities.Departement;
+import fr.inti.entities.Matiere;
 import fr.inti.entities.Professeur;
 
 public interface IProfesseurService {
@@ -18,5 +19,7 @@ public interface IProfesseurService {
 	public Professeur getProfesseurById(Professeur professeur);
 	
 	public Professeur AssignerDepartement(Professeur professeur,Departement departement);
+	
+	public Professeur AssignerMatiere(Professeur professeur,Matiere matiere);
 
 }

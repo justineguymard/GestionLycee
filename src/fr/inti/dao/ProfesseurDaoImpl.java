@@ -10,6 +10,7 @@ import javax.persistence.Query;
 
 import fr.inti.entities.Departement;
 import fr.inti.entities.Etudiant;
+import fr.inti.entities.Matiere;
 import fr.inti.entities.Professeur;
 
 public class ProfesseurDaoImpl implements IProfesseurDao{
@@ -177,6 +178,41 @@ public class ProfesseurDaoImpl implements IProfesseurDao{
 		
 		return professeur;
 	
+	}
+
+	@Override
+	public Professeur AssignerMatiere(Professeur professeur, Matiere matiere) {
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("puGestionLycee");
+
+		// Creation d'un entityManager a partir de emf
+		EntityManager em = emf.createEntityManager();
+		
+		//recuperer la transaction
+		EntityTransaction tx=em.getTransaction();
+		
+		//commencer une transaction
+		tx.begin();
+		
+		//recuperer l'objet a modifier a partir de la bc par son id
+		Professeur pAssign2=em.find(Professeur.class, professeur.getId());
+		
+		// params a modifier
+		
+		pAssign2.setMatiere(matiere);
+		
+		//modification de la copie de l'objet eModif dans le contexte de l'EntityManager
+		
+		em.merge(pAssign2);
+		
+		//commit la transaction pour envoyer concretement ces modifs à la bd
+		tx.commit();
+		
+		//fermer les flux
+		em.close();
+		emf.close();
+		
+		return professeur;
 	}
 	
 	

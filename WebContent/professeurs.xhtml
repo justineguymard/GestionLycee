@@ -32,6 +32,9 @@
 		<h:outputLabel value="Prenom: " />
 		<h:inputText value="#{professeurMB.professeur.prenom}" required="true" />
 		
+			<h:outputLabel value="Date : " />
+		 <p:calendar id="popup" value="#{professeurMB.professeur.dateAff}" />
+		
 		<br/>
 		<h:commandButton value="Ajouter" action="#{professeurMB.ajouterProfesseur}"  style="margin-left : 30px"/>
 	
@@ -84,7 +87,7 @@
 
 <div style="display: inline-block">
 <h:form>
-<h3>Assigner un professeur</h3>
+<h3>Assigner un departement</h3>
 <h:panelGrid columns="2" >
 
 		<h:outputLabel value="ID du professeur: " />
@@ -95,6 +98,25 @@
 		
 		<br/>
 		<h:commandButton value="Assigner" action="#{professeurMB.assignerDepartement}"  style="margin-left : 30px" />
+	
+	</h:panelGrid>
+
+</h:form>
+</div>
+
+<div style="display: inline-block">
+<h:form>
+<h3>Assigner une matiere</h3>
+<h:panelGrid columns="2" >
+
+		<h:outputLabel value="ID du professeur: " />
+		<h:inputText value="#{professeurMB.professeur.id}" required="true" />
+		
+		<h:outputLabel value="ID de la matiere : " />
+		<h:inputText value="#{professeurMB.matiere.id}" />
+		
+		<br/>
+		<h:commandButton value="Assigner" action="#{professeurMB.assignerMatiere}"  style="margin-left : 30px" />
 	
 	</h:panelGrid>
 
@@ -125,6 +147,13 @@
 				rendered="#{pr.departement.id == NULL}" />
 
 		</p:column>
+		<p:column headerText="Matiere (ID)">
+			<h:outputText value="#{pr.matiere.intitule} (#{pr.matiere.id})"
+				rendered="#{pr.matiere.id != NULL}" />
+			<h:outputText value="Non associé(e) à une matiere"
+				rendered="#{pr.departement.id == NULL}" />
+		</p:column>
+		
 
 	</p:dataTable>
 
