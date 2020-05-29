@@ -91,4 +91,6 @@ public class ProfesseurManagedBean implements Serializable {
 		professeurService.AssignerDepartement(this.professeur, this.departement);
 		return "professeurs";
 }
+	
+	
 }

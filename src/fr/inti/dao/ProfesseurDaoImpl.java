@@ -6,8 +6,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import fr.inti.entities.Departement;
+import fr.inti.entities.Etudiant;
 import fr.inti.entities.Professeur;
 
 public class ProfesseurDaoImpl implements IProfesseurDao{
@@ -114,14 +116,30 @@ public class ProfesseurDaoImpl implements IProfesseurDao{
 
 	@Override
 	public List<Professeur> getAllProfesseurs() {
-		// TODO Auto-generated method stub
-		return null;
+
+		// creation d'un entityManagerFactory
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("puGestionLycee");
+
+		// creation d'un entityManager à partir de emf
+		EntityManager em = emf.createEntityManager();
+		
+		
+		//requete JPQL
+		String reqListeJPQL = "SELECT p FROM Professeur as p";
+		
+		Query queryListeJPQL = em.createQuery(reqListeJPQL);
+		
+		@SuppressWarnings("unchecked")
+		List<Professeur> listeEtudiantsJPQL = queryListeJPQL.getResultList();
+
+		return listeEtudiantsJPQL;
 	}
 
 	@Override
 	public Professeur getProfesseurById(Professeur professeur) {
-		// TODO Auto-generated method stub
+		
 		return null;
+
 	}
 
 	@Override

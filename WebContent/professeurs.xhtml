@@ -107,5 +107,26 @@
 <br/>
 <h3>Liste des professeurs </h3>
 
+<p:dataTable id="tbl2" var="pr" value="#{professeurMB.listeProfesseurs}">
+		<p:column headerText="ID" style="width : 30px">
+			<h:outputText value="#{pr.id}" />
+		</p:column>
+
+		<p:column headerText="Nom">
+			<h:outputText value="#{pr.nom}" />
+		</p:column>
+		<p:column headerText="Prenom">
+			<h:outputText value="#{pr.prenom}" />
+		</p:column>
+		<p:column headerText="Departement (ID)">
+			<h:outputText value="#{pr.departement.nom} (#{pr.departement.id})"
+				rendered="#{pr.departement.id != NULL}" />
+			<h:outputText value="Non associé(e) à un département"
+				rendered="#{pr.departement.id == NULL}" />
+
+		</p:column>
+
+	</p:dataTable>
+
 </h:body>
 </html>
