@@ -54,7 +54,7 @@ public class ProfesseurDaoImpl implements IProfesseurDao{
 		
 		//recuperer la transaction
 		EntityTransaction tx=em.getTransaction();
-		
+		try {
 		//commencer une transaction
 		tx.begin();
 		
@@ -73,12 +73,24 @@ public class ProfesseurDaoImpl implements IProfesseurDao{
 		
 		//commit la transaction pour envoyer concretement ces modifs à la bd
 		tx.commit();
+		System.out.println("\n dans le try");
+		return pModif;
 		
-		//fermer les flux
+
+		} catch (Exception e) {
+			System.err.println("Erreur de transaction");
+			e.printStackTrace();
+			
+		} finally {
+			System.out.println("\n dans le finally");
+
+		// ferme flux
 		em.close();
 		emf.close();
 		
-		return professeur;
+		}
+		System.out.println("\n dans le ret null");
+		return null;
 	}
 
 	@Override
@@ -154,7 +166,7 @@ public class ProfesseurDaoImpl implements IProfesseurDao{
 		
 		//recuperer la transaction
 		EntityTransaction tx=em.getTransaction();
-		
+		try {
 		//commencer une transaction
 		tx.begin();
 		
@@ -172,11 +184,22 @@ public class ProfesseurDaoImpl implements IProfesseurDao{
 		//commit la transaction pour envoyer concretement ces modifs à la bd
 		tx.commit();
 		
-		//fermer les flux
-		em.close();
-		emf.close();
+		return pAssign;
 		
-		return professeur;
+	} catch (Exception e) {
+		System.err.println("Erreur de transaction");
+		e.printStackTrace();
+		
+	} finally {
+		System.out.println("\n dans le finally");
+
+	// ferme flux
+	em.close();
+	emf.close();
+	
+	}
+	System.out.println("\n dans le ret null");
+	return null;
 	
 	}
 
@@ -190,7 +213,7 @@ public class ProfesseurDaoImpl implements IProfesseurDao{
 		
 		//recuperer la transaction
 		EntityTransaction tx=em.getTransaction();
-		
+		try {
 		//commencer une transaction
 		tx.begin();
 		
@@ -208,11 +231,23 @@ public class ProfesseurDaoImpl implements IProfesseurDao{
 		//commit la transaction pour envoyer concretement ces modifs à la bd
 		tx.commit();
 		
-		//fermer les flux
+return pAssign2;
+		
+
+		} catch (Exception e) {
+			System.err.println("Erreur de transaction");
+			e.printStackTrace();
+			
+		} finally {
+			System.out.println("\n dans le finally");
+
+		// ferme flux
 		em.close();
 		emf.close();
 		
-		return professeur;
+		}
+		System.out.println("\n dans le ret null");
+		return null;
 	}
 	
 	

@@ -21,5 +21,8 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/primefaces-6.2.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.faces.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.el-api-2.2.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/bootstrap-1.0.10.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/home-1.0.10.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ui-lightness-1.0.10.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

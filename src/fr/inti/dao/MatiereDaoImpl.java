@@ -52,7 +52,7 @@ public class MatiereDaoImpl implements IMatiereDao{
 
 			// creation d'un objet de type entitytransaction
 			EntityTransaction tx = em.getTransaction();
-
+			try {
 			// ouvrir une transaction (commencer une transaction)
 			tx.begin();
 
@@ -68,12 +68,25 @@ public class MatiereDaoImpl implements IMatiereDao{
 
 			// ferme transaction
 			tx.commit();
+			System.out.println("\n dans le try");
+			return MatiereModif;
+			
+
+			} catch (Exception e) {
+				System.err.println("Erreur de transaction");
+				e.printStackTrace();
+				
+			} finally {
+				System.out.println("\n dans le finally");
 
 			// ferme flux
 			em.close();
 			emf.close();
+			
+			}
+			System.out.println("\n dans le ret null");
+			return null;
 
-			return matiere;
 
 	}
 

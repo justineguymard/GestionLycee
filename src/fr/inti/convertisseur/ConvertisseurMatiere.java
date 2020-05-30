@@ -19,8 +19,6 @@ public class ConvertisseurMatiere implements Converter {
 		
 		MatiereManagedBean matiere= (MatiereManagedBean) vex.getValue(ctx.getELContext());
 		
-		
-		
 		return  matiere.getMatiere(Integer.valueOf(matiereId));
 		
 	}
@@ -28,9 +26,9 @@ public class ConvertisseurMatiere implements Converter {
 	@Override
 	public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object matiere) {
 		
-		String m= String.valueOf(((Matiere)matiere).getId());
+		String s= String.valueOf(((Matiere)matiere).getId());
 		
-		return m;
+		return s;
 	}
 
 }

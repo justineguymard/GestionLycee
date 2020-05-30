@@ -52,7 +52,10 @@
 		</p:column>
 		
 			<p:column headerText="Opérations" style="width : 15%" >
-			<h:outputText value="Modifier | Supprimer | Assigner" />
+			<h:button value="Modifier" outcome="professeurModifier"/>
+			<h:button value="Supprimer" outcome="professeurSupprimer"/>
+			<h:button value="AssignerDept" outcome="professeurAssignerDepartement"/>
+			<h:button value="AssignerMatiere" outcome="professeurAssignerMatiere"/>
 		</p:column>
 
 	</p:dataTable>

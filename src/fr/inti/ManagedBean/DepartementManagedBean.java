@@ -88,7 +88,7 @@ public class DepartementManagedBean implements Serializable {
 		int verif = departementService.SupprimerDepartement(this.departement);
 		if (verif != 0) {
 			this.listeDepartements = departementService.getAllDepartements();
-			return "departementtListe";
+			return "departementListe";
 
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null,

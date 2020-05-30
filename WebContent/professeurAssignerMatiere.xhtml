@@ -11,36 +11,86 @@
 	<title>Professeur</title>
 </h:head>
 <h:body>
-<ui:insert name="header">
+
+	<ui:insert name="header">
 		<ui:include src="/ressources/template/header.xhtml" />
 	</ui:insert>
 
-<h1 style="text-align: center">Attribution d'une matière</h1>
+	<h1 style="text-align: center">Attribution d'une matière</h1>
 
 
-<div style="display: inline-block">
-<h:form>
+	<div style="display: inline-block">
+		<h:form>
 
-<h:panelGrid columns="2" >
+			<h:panelGrid columns="2">
 
-		<h:outputLabel value="ID du professeur: " />
-		<h:inputText value="#{professeurMB.professeur.id}" required="true" />
-		
-		<h:outputLabel value="ID de la matiere : " />
-		<h:inputText value="#{professeurMB.matiere.id}" />
-		
-		<br/>
-		<h:commandButton value="Assigner" action="#{professeurMB.assignerMatiere}"  style="margin-left : 30px" />
-	
-	</h:panelGrid>
+				<h:outputLabel value="ID du professeur: " />
+				<h:inputText value="#{professeurMB.professeur.id}" required="true" />
 
-</h:form>
-</div>
+				<h:outputLabel value="ID de la matiere : " />
+				<h:inputText value="#{professeurMB.matiere.id}" />
+
+				<br />
+				<h:commandButton value="Assigner"
+					action="#{professeurMB.assignerMatiere}" style="margin-left : 30px" />
+
+			</h:panelGrid>
+
+		</h:form>
+	</div>
+
+	<br />
+	<br />
+	<br />
+	<br />
+
+	<div style="display: inline-block; width: 95%; margin-left: 2%">
 
 
-<ui:insert name = "footer" >
-      <ui:include src = "/ressources/template/footer.xhtml" />
-</ui:insert>
+		<p:dataTable var="pr" value="#{professeurMB.profSansMatiere}"
+			style="width : 62%;vertical-align:top; float:left">
+			<f:facet name="header">Liste des professeurs sans assignation</f:facet>
+			<p:column headerText="ID" style="width : 2%">
+				<h:outputText value="#{pr.id}" />
+			</p:column>
+
+			<p:column headerText="Nom" style="width : 9%">
+				<h:outputText value="#{pr.nom}" />
+			</p:column>
+			<p:column headerText="Prenom" style="width : 9%">
+				<h:outputText value="#{pr.prenom}" />
+			</p:column>
+			<p:column headerText="date d'affectation">
+				<h:outputText value="#{pr.dateAff}">
+					<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</p:column>
+			<p:column headerText="Matiere (ID)" style="width : 15%">
+				<h:outputText value="#{pr.matiere} (#{pr.matiere.id})"
+					rendered="#{pr.matiere.id != NULL}" />
+				<h:outputText value="Non associé(e) à une matière"
+					rendered="#{pr.matiere.id == NULL}" />
+
+			</p:column>
+
+		</p:dataTable>
+
+
+		<p:dataTable var="mat" value="#{matiereMB.listeMatieres}"
+			style="width : 35%; vertical-align:top; float :right">
+			<f:facet name="header">Liste des matières disponibles</f:facet>
+			<p:column headerText="Matière (ID)">
+				<h:outputText value="#{mat.intitule} (#{mat.id})" />
+			</p:column>
+
+
+		</p:dataTable>
+	</div>
+
+
+	<ui:insert name="footer">
+		<ui:include src="/ressources/template/footer.xhtml" />
+	</ui:insert>
 
 
 </h:body>

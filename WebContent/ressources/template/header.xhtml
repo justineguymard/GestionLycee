@@ -9,61 +9,80 @@
 
 <h:head>
 
-	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+	<h:outputStylesheet name="primeicons/primeicons.css"
+		library="primefaces" />
 	<title>head</title>
 </h:head>
 
 <h:body>
 
-<h:form>  
-    <p:growl id="messages"/>
- 
-    <p:menubar>
-     <p:menuitem value="Accueil" url="accueil.xhtml" />
-    
-     
-     <p:submenu label="Etudiants" icon="pi pi-pencil">
-     		<p:menuitem value="Liste" url="etudiantListe.xhtml" icon="pi pi-angle-double-left" />
-            <p:menuitem value="Ajouter" url="etudiantAjout.xhtml" icon="pi pi-angle-double-left" />
-            <p:menuitem value="Modifier" url="etudiantModifier.xhtml" icon="pi pi-angle-double-right" />
-            <p:menuitem value="Supprimer" url="etudiantSupprimer.xhtml" icon="pi pi-angle-double-right" />
-            <p:menuitem value="Assigner un département" url="etudiantAssignerDepartement.xhtml" icon="pi pi-angle-double-right" />
-        </p:submenu>
-     
-         <p:submenu label="Professeurs" icon="pi pi-pencil">
-        	<p:menuitem value="Liste" url="professeurListe.xhtml" icon="pi pi-angle-double-left" />
-            <p:menuitem value="Ajouter" url="professeurAjout.xhtml" icon="pi pi-angle-double-left" />
-            <p:menuitem value="Modifier" url="professeurModifier.xhtml" icon="pi pi-angle-double-right" />
-            <p:menuitem value="Supprimer" url="professeurSupprimer.xhtml" icon="pi pi-angle-double-right" />
-            <p:submenu label="Assigner" icon="pi pi-briefcase">
-                <p:menuitem value="Département" url="professeurAssignerDepartement.xhtml" />
-                <p:menuitem value="Matière" url="professeurAssignerMatiere.xhtml" />
-            </p:submenu>
-        </p:submenu>
-     
-     <p:submenu label="Départements" icon="pi pi-pencil">
-     		<p:menuitem value="Liste" url="departementListe.xhtml" icon="pi pi-angle-double-left" />
-            <p:menuitem value="Ajouter" url="departementAjout.xhtml" icon="pi pi-angle-double-left" />
-            <p:menuitem value="Modifier" url="departementModifier.xhtml" icon="pi pi-angle-double-right" />
-            <p:menuitem value="Supprimer" url="departementSupprimer.xhtml" icon="pi pi-angle-double-right" />
-        </p:submenu>
-        
-        
-         <p:submenu label="Matières" icon="pi pi-pencil">
-         	<p:menuitem value="Liste" url="matiereListe.xhtml" icon="pi pi-angle-double-left" />
-            <p:menuitem value="Ajouter" url="matiereAjout.xhtml" icon="pi pi-angle-double-left" />
-            <p:menuitem value="Modifier" url="matiereModifier.xhtml" icon="pi pi-angle-double-right" />
-            <p:menuitem value="Supprimer" url="matiereSupprimer.xhtml" icon="pi pi-angle-double-right" />
-        
-        </p:submenu>
+	<h:form>
+		<p:growl id="messages" />
 
-     
-     
-    </p:menubar>
-</h:form>
+		<p:menubar>
+			<p:menuitem value="Accueil" icon=" fa fa-home" url="accueil.xhtml" />
 
-	<br/>
-	<br/>
+
+			<p:submenu label="Etudiants" icon="fa fa-user">
+				<p:menuitem value="Liste" url="etudiantListe.xhtml"
+					icon="fa fa-reorder" />
+				<p:menuitem value="Ajouter" url="etudiantAjout.xhtml"
+					icon="fa fa-plus" />
+				<p:menuitem value="Modifier" url="etudiantModifier.xhtml"
+					icon="fa fa-refresh" />
+				<p:menuitem value="Supprimer" url="etudiantSupprimer.xhtml"
+					icon="fa fa-remove" />
+				<p:menuitem value="Assigner un département"
+					url="etudiantAssignerDepartement.xhtml"
+					icon="fa fa-arrows-alt" />
+			</p:submenu>
+
+			<p:submenu label="Professeurs" icon="fa fa-pencil">
+				<p:menuitem value="Liste" url="professeurListe.xhtml"
+					icon="fa fa-reorder" />
+				<p:menuitem value="Ajouter" url="professeurAjout.xhtml"
+					icon="fa fa-plus" />
+				<p:menuitem value="Modifier" url="professeurModifier.xhtml"
+					icon="fa fa-refresh" />
+				<p:menuitem value="Supprimer" url="professeurSupprimer.xhtml"
+					icon="fa fa-remove" />
+				<p:submenu label="Assigner" icon="fa fa-arrows-alt">
+					<p:menuitem value="Département"
+						url="professeurAssignerDepartement.xhtml" />
+					<p:menuitem value="Matière" url="professeurAssignerMatiere.xhtml" />
+				</p:submenu>
+			</p:submenu>
+
+			<p:submenu label="Départements" icon="fa fa-university">
+				<p:menuitem value="Liste" url="departementListe.xhtml"
+					icon="fa fa-reorder" />
+				<p:menuitem value="Ajouter" url="departementAjout.xhtml"
+					icon="fa fa-plus" />
+				<p:menuitem value="Modifier" url="departementModifier.xhtml"
+					icon="fa fa-refresh" />
+				<p:menuitem value="Supprimer" url="departementSupprimer.xhtml"
+					icon="fa fa-remove" />
+			</p:submenu>
+
+
+			<p:submenu label="Matières" icon="fa fa-th-list">
+				<p:menuitem value="Liste" url="matiereListe.xhtml"
+					icon="fa fa-reorder" />
+				<p:menuitem value="Ajouter" url="matiereAjout.xhtml"
+					icon="fa fa-plus" />
+				<p:menuitem value="Modifier" url="matiereModifier.xhtml"
+					icon="fa fa-refresh" />
+				<p:menuitem value="Supprimer" url="matiereSupprimer.xhtml"
+					icon="fa fa-remove" />
+			</p:submenu>
+
+
+
+		</p:menubar>
+	</h:form>
+
+	<br />
+	<br />
 
 </h:body>
 

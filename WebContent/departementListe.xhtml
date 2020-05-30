@@ -28,7 +28,8 @@
 		</p:column>
 		
 		<p:column headerText="Opérations" style="width : 15%" >
-			<h:outputText value="Modifier | Supprimer " />
+			<h:button value="Modifier" outcome="departementModifier"/> 
+		<h:button value="Supprimer" outcome="departementSupprimer"/>	
 		</p:column>
 </p:dataTable>
 <ui:insert name = "footer" >

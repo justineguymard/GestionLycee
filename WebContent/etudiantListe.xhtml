@@ -20,7 +20,7 @@
 
 	
 
-
+<h:form>
 	<p:dataTable id="tbl1" var="et" value="#{etudiantMB.listeEtudiants}">
 		<p:column headerText="ID" style="width : 1%">
 			<h:outputText value="#{et.id}" />
@@ -38,12 +38,16 @@
 			<h:outputText value="Non associé(e) à un département"
 				rendered="#{et.departement.id == NULL}" />
 
+
 		</p:column>
 		<p:column headerText="Opérations" style="width : 15%" >
-			<h:outputText value="Modifier | Supprimer | Assigner" />
+			
+		<h:button value="Modifier" outcome="etudiantModifier"/> 
+		<h:button value="Supprimer" outcome="etudiantSupprimer"/>	
+		<h:button value="Assigner" outcome="etudiantAssignerDepartement"/>
 		</p:column>
 
 	</p:dataTable>
-
+</h:form>
 </h:body>
 </html>

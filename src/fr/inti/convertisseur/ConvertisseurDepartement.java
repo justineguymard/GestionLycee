@@ -28,8 +28,8 @@ public class ConvertisseurDepartement implements Converter {
 	@Override
 	public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object departement) {
 		
-		String m= String.valueOf(((Departement)departement).getId());
+		String s= String.valueOf(((Departement)departement).getId());
 		
-		return m;
+		return s;
 	}
 }
