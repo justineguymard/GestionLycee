@@ -25,20 +25,30 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 		// creation d'un objet de type entitytransaction
 		EntityTransaction tx = em.getTransaction();
 
+		try {
 		// ouvrir une transaction (commencer une transaction)
 		tx.begin();
-
 		// rendre l'objet persistant
 		em.persist(etudiant);
-
 		// ferme transaction
 		tx.commit();
+	
+		return etudiant;
+		
+		} catch (Exception e) {
+			System.err.println("Erreur de transaction");
+			e.printStackTrace();
+			
+		} finally {
+		
 
 		// ferme flux
 		em.close();
 		emf.close();
-
-		return etudiant;
+		
+		}
+		
+		return null;
 
 	}
 
@@ -52,7 +62,7 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 
 		// creation d'un objet de type entitytransaction
 		EntityTransaction tx = em.getTransaction();
-
+		try {
 		// ouvrir une transaction (commencer une transaction)
 		tx.begin();
 
@@ -65,20 +75,31 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 
 		// rendre l'objet persistant
 		em.merge(etudiantModif);
-
 		// ferme transaction
 		tx.commit();
+		System.out.println("\n dans le try");
+		return etudiantModif;
+		
+
+		} catch (Exception e) {
+			System.err.println("Erreur de transaction");
+			e.printStackTrace();
+			
+		} finally {
+			System.out.println("\n dans le finally");
 
 		// ferme flux
 		em.close();
 		emf.close();
-
-		return etudiant;
+		
+		}
+		System.out.println("\n dans le ret null");
+		return null;
 
 	}
 
 	@Override
-	public int supprimerEtudiant(Etudiant etudiant) {
+	public Etudiant supprimerEtudiant(Etudiant etudiant) {
 		// creation d'un entityManagerFactory
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("puGestionLycee");
 
@@ -87,33 +108,26 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 
 		// creation d'un objet de type entitytransaction
 		EntityTransaction tx = em.getTransaction();
-
+		
+		
 		// ouvrir une transaction (commencer une transaction)
 		tx.begin();
 
 		// recuperer l'étudiant à modifier
 		Etudiant etudiantSuppression = em.find(Etudiant.class, etudiant.getId());
-
-		// instauration d'une verif
-		int verif = 0;
-
-		if (etudiantSuppression != null) { // si trouvé suppresion
-			// suppression
-			verif++;
-
-		} else {
-		}
-
+		
 		em.remove(etudiantSuppression);
 
 		// ferme transaction
 		tx.commit();
-
+		System.out.println(etudiantSuppression);
+		
 		// ferme flux
 		em.close();
 		emf.close();
-
-		return verif;
+		
+		return etudiantSuppression;
+		
 	}
 
 	@Override
@@ -126,7 +140,7 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 
 		// creation d'un objet de type entitytransaction
 		EntityTransaction tx = em.getTransaction();
-
+		
 		// ouvrir une transaction (commencer une transaction)
 		tx.begin();
 

@@ -13,8 +13,14 @@ public class EtudiantServiceImpl implements IEtudiantService{
 	private IEtudiantDao etDao = new EtudiantDaoImpl();
 	
 	@Override
-	public Etudiant ajouterEtudiant(Etudiant etudiant) {
-		return etDao.ajouterEtudiant(etudiant);
+	public int ajouterEtudiant(Etudiant etudiant) {
+		Etudiant etVerif = etDao.modifierEtudiant(etudiant);
+		
+		if (etVerif != null ) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 
 	@Override
@@ -31,8 +37,13 @@ public class EtudiantServiceImpl implements IEtudiantService{
 	
 	@Override
 	public int supprimerEtudiant(Etudiant etudiant) {
-		// TODO Auto-generated method stub
-		return etDao.supprimerEtudiant(etudiant);
+		Etudiant etVerif = etDao.supprimerEtudiant(etudiant);
+		
+		if (etVerif != null ) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 
 	@Override

@@ -65,6 +65,7 @@ public class ProfesseurDaoImpl implements IProfesseurDao{
 		// params a modifier
 		pModif.setNom(professeur.getNom());
 		pModif.setPrenom(professeur.getPrenom());
+		pModif.setDateAff(professeur.getDateAff());
 		
 		//modification de la copie de l'objet eModif dans le contexte de l'EntityManager
 		

@@ -74,7 +74,7 @@ public class DepartementDaoImpl implements IDepartementDao{
 	}
 
 	@Override
-	public int SupprimerDepartement(Departement departement) {
+	public void SupprimerDepartement(Departement departement) {
 		// creation d'un entityManagerFactory
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("puGestionLycee");
 
@@ -90,16 +90,7 @@ public class DepartementDaoImpl implements IDepartementDao{
 		// recuperer l'étudiant à modifier
 		Departement departementSuppression = em.find(Departement.class, departement.getId());
 
-		// instauration d'une verif
-		int verif = 0;
-
-		if (departementSuppression != null) { // si trouvé suppresion
-			// suppression
-			verif++;
-
-		} else {
-		}
-
+	
 		em.remove(departementSuppression);
 
 		// ferme transaction
@@ -109,7 +100,6 @@ public class DepartementDaoImpl implements IDepartementDao{
 		em.close();
 		emf.close();
 
-		return verif;
 	}
 
 	@Override

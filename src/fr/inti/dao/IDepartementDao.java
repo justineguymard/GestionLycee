@@ -10,7 +10,7 @@ public interface IDepartementDao {
 	
 	public Departement ModifierDepartement (Departement departement);
 	
-	public int SupprimerDepartement(Departement departement);
+	public void SupprimerDepartement(Departement departement);
 
 	public List<Departement> getAllDepartements ();
 

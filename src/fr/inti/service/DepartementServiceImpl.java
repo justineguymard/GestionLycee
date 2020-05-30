@@ -27,9 +27,15 @@ public class DepartementServiceImpl implements IDepartementService{
 	}
 
 	@Override
-	public Departement SupprimerDepartement(Departement departement) {
-		// TODO Auto-generated method stub
-		return depDao.ModifierDepartement(departement);
+	public int SupprimerDepartement(Departement departement) {
+		int verif = 0;
+		if (departement != null) {
+			verif++;
+			depDao.SupprimerDepartement(departement);
+			return verif;
+		}else {
+			return verif;
+		}
 		
 	}
 

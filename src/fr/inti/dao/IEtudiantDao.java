@@ -12,7 +12,7 @@ public interface IEtudiantDao {
 	
 	public Etudiant modifierEtudiant (Etudiant etudiant);
 	
-	public int supprimerEtudiant (Etudiant etudiant);
+	public Etudiant supprimerEtudiant (Etudiant etudiant);
 	
 	public Etudiant assignerDepartement (Etudiant etudiant, Departement departement);
 	

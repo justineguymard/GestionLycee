@@ -8,7 +8,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import fr.inti.entities.Departement;
-import fr.inti.entities.Etudiant;
 import fr.inti.entities.Matiere;
 import fr.inti.entities.Professeur;
 import fr.inti.service.IProfesseurService;

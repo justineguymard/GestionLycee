@@ -10,7 +10,7 @@ public interface IDepartementService {
 
 	public Departement ModifierDepartement(Departement departement);
 
-	public Departement SupprimerDepartement(Departement departement);
+	public int SupprimerDepartement(Departement departement);
 	
 	public List<Departement> getAllDepartements();
 

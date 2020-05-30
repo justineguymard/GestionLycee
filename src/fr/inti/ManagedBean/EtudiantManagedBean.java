@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import fr.inti.entities.Departement;
 import fr.inti.entities.Etudiant;
@@ -68,8 +70,14 @@ public class EtudiantManagedBean implements Serializable {
 	
 
 	public String ajouterEtudiant() {
-		etudiantService.ajouterEtudiant(this.etudiant);
-		return "etudiantAjout";
+		int verif = etudiantService.ajouterEtudiant(this.etudiant);
+		if (verif != 0) {
+			return "etudiantListe";
+			
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Ajout impossible, veuillez réessayer"));
+			return "etudiantAjout";
+		}
 		
 		
 	}
