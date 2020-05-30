@@ -16,4 +16,13 @@
 	<converter-class>fr.inti.convertisseur.ConvertisseurProfesseur</converter-class>
 </converter>
 
+<converter>
+	<converter-id>ConvertisseurMatiere</converter-id>
+	<converter-class>fr.inti.convertisseur.ConvertisseurMatiere</converter-class>
+</converter>
+
+<converter>
+	<converter-id>ConvertisseurDepartement</converter-id>
+	<converter-class>fr.inti.convertisseur.ConvertisseurDepartement</converter-class>
+</converter>
 </faces-config>

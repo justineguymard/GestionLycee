@@ -18,21 +18,24 @@
 
 <h1 style="text-align: center">Suppression d'une matière </h1>
 
-<div style="display: inline-block">
+
 <h:form>
 
-<h:panelGrid columns="2" >
+<p:selectOneMenu id="longItemLabel" value="#{matiereMB.matiere}"
+			dynamic="true" >
 
-		<h:outputLabel value="ID: " />
-		<h:inputText value="#{matiereMB.matiere.id}" required="true" />
-	
-		<br/>
-		<h:commandButton value="Supprimer" action="#{matiereMB.supprimerMatiere}" style="margin-left : 30px" />
-	
-	</h:panelGrid>
+			<f:converter converterId="ConvertisseurMatiere" />
+			<f:selectItems value="#{matiereMB.listeMatieres}" var="matiere"
+				itemValue="#{matiere}"
+				itemLabel="#{matiere.id}, #{matiere.intitule}" />
+				
+
+		</p:selectOneMenu>
+ 		<h:commandButton value="Supprimer" 
+			action="#{matiereMB.supprimerMatiere}" style="margin-left : 30px" ></h:commandButton>
 
 </h:form>
-</div>
+
 
 <ui:insert name = "footer" >
       <ui:include src = "/ressources/template/footer.xhtml" />
