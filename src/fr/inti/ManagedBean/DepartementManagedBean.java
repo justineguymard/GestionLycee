@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import fr.inti.entities.Departement;
 import fr.inti.service.IDepartementService;
@@ -57,21 +59,52 @@ public class DepartementManagedBean implements Serializable {
 	// methodes metier
 
 	public String ajouterDepartement() {
-		departementService.ajouterDepartement(this.departement);
-		return "departementAjout";
+		Departement verif = departementService.ajouterDepartement(this.departement);
+		if (verif != null) {
+			return "departementListe";
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Ajout impossible, veuillez réessayer"));
+			return "departementAjout";
+		}
+		
 
 	}
 
 	public String modifierDepartement() {
-		
-		departementService.ModifierDepartement(departement);
-		return "departementModifier";
-
+		Departement verif = departementService.ModifierDepartement(departement);
+		if (verif != null) {
+			return "departementListe";
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Modification impossible, veuillez réessayer"));
+			return "departementModifier";
+		}
 	}
 
 	public String supprimerDepartement() {
-		departementService.SupprimerDepartement(this.departement);
-		return "departementSupprimer";
+		int verif = departementService.SupprimerDepartement(this.departement);
+		if (verif != 0) {
+			return "departementtListe";
 
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Suppression impossible, veuillez réessayer"));
+			return "departementSupprimer";
+		}
+	}
+	
+	
+	
+	public Departement getDepartement(Integer id) {
+		if (id == null) {
+			throw new IllegalArgumentException("no id provided");
+		}
+		for (Departement departement : listeDepartements) {
+			if (id.equals(departement.getId())) {
+				return departement;
+			}
+		}
+		return null;
 	}
 }

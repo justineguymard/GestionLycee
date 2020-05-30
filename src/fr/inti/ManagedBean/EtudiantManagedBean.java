@@ -1,6 +1,7 @@
 package fr.inti.ManagedBean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -15,30 +16,30 @@ import fr.inti.service.EtudiantServiceImpl;
 import fr.inti.service.IEtudiantService;
 
 @SuppressWarnings("serial")
-@ManagedBean(name="etudiantMB")
+@ManagedBean(name = "etudiantMB")
 @RequestScoped
 public class EtudiantManagedBean implements Serializable {
-	
-	//attributs 
+
+	// attributs
 	private Etudiant etudiant;
-	private List <Etudiant> listeEtudiants;
-	private Departement  departement;
-	//association uml en java 
-	
+	private List<Etudiant> listeEtudiants;
+	private Departement departement;
+	// association uml en java
+
 	private IEtudiantService etudiantService = new EtudiantServiceImpl();
-	
-	//Constructeur vide 
+
+	// Constructeur vide
 	public EtudiantManagedBean() {
 		super();
 	}
-	
-	@PostConstruct 
-	public void init () {
-		
+
+	@PostConstruct
+	public void init() {
+
 		this.etudiant = new Etudiant();
-		this.departement= new Departement();
+		this.departement = new Departement();
 		this.listeEtudiants = etudiantService.getAllEtudiants();
-		
+
 	}
 
 	public Etudiant getEtudiant() {
@@ -56,8 +57,8 @@ public class EtudiantManagedBean implements Serializable {
 	public void setListeEtudiants(List<Etudiant> listeEtudiants) {
 		this.listeEtudiants = listeEtudiants;
 	}
-	
-		public Departement getDepartement() {
+
+	public Departement getDepartement() {
 		return departement;
 	}
 
@@ -65,55 +66,63 @@ public class EtudiantManagedBean implements Serializable {
 		this.departement = departement;
 	}
 
-	
-	//méthodes métiers 
-	
+	// méthodes métiers
 
 	public String ajouterEtudiant() {
 		int verif = etudiantService.ajouterEtudiant(this.etudiant);
 		if (verif != 0) {
 			return "etudiantListe";
-			
+
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Ajout impossible, veuillez réessayer"));
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Ajout impossible, veuillez réessayer"));
 			return "etudiantAjout";
 		}
-		
-		
+
 	}
-	
+
 	public String modifierEtudiant() {
 		int verif = etudiantService.modifierEtudiant(this.etudiant);
-		if (verif != 0 ) {
-		return "etudiantListe";
-		
+		if (verif != 0) {
+			return "etudiantListe";
+
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Ajout impossible, veuillez réessayer"));
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Modification impossible, veuillez réessayer"));
 			return "etudiantModifier";
 		}
-		
+
 	}
 
 	public String supprimerEtudiant() {
-		
 		int verif = etudiantService.supprimerEtudiant(this.etudiant);
-	if (verif != 0) {
-		return "etudiantListe";
-		
-	} else {
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Ajout impossible, veuillez réessayer"));
-		return "etudiantSupprimer";
+		if (verif != 0) {
+			return "etudiantListe";
+
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Suppression impossible, veuillez réessayer"));
+			return "etudiantSupprimer";
+		}
 	}
-	
-	
+
 	public String assignerDepartement() {
-		etudiantService.assignerEtudiant(this.etudiant, this.departement );
-		return "etudiantAssignerDepartement";
+		Etudiant verif = etudiantService.assignerEtudiant(this.etudiant, this.departement);
+		
+		if (verif != null) {
+			return "etudiantListe";
+
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Assignation impossible, veuillez réessayer"));
+			return "etudiantAssignerDepartement";
+		}
 	}
+
 	
 	public Etudiant getEtudiant(Integer id) {
-		if (id == null ) {
-			throw new IllegalArgumentException ("no id provided");
+		if (id == null) {
+			throw new IllegalArgumentException("no id provided");
 		}
 		for (Etudiant etudiant : listeEtudiants) {
 			if (id.equals(etudiant.getId())) {
@@ -123,5 +132,15 @@ public class EtudiantManagedBean implements Serializable {
 		return null;
 	}
 	
+	public List <Etudiant> getEtudiantNonAssign() {
+		
+		List <Etudiant> listeEtudiantsNonAssign = new ArrayList<Etudiant>();
+		for (Etudiant etudiant : this.listeEtudiants) {
+			if (etudiant.getDepartement() == null ) {
+				listeEtudiantsNonAssign.add(etudiant);
+			}
+		}
+		return listeEtudiantsNonAssign;
+	}
 
 }

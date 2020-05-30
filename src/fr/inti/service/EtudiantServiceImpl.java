@@ -14,7 +14,7 @@ public class EtudiantServiceImpl implements IEtudiantService{
 	
 	@Override
 	public int ajouterEtudiant(Etudiant etudiant) {
-		Etudiant etVerif = etDao.modifierEtudiant(etudiant);
+		Etudiant etVerif = etDao.ajouterEtudiant(etudiant);
 		
 		if (etVerif != null ) {
 			return 1;
