@@ -85,17 +85,24 @@ public class EtudiantManagedBean implements Serializable {
 	public String modifierEtudiant() {
 		int verif = etudiantService.modifierEtudiant(this.etudiant);
 		if (verif != 0 ) {
-		return "etudiantModifier";
+		return "etudiantListe";
+		
 		} else {
-			return "accueil";
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Ajout impossible, veuillez réessayer"));
+			return "etudiantModifier";
 		}
 		
 	}
 
 	public String supprimerEtudiant() {
-		etudiantService.supprimerEtudiant(this.etudiant);
-		return  "etudiantSupprimer";
 		
+		int verif = etudiantService.supprimerEtudiant(this.etudiant);
+	if (verif != 0) {
+		return "etudiantListe";
+		
+	} else {
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Ajout impossible, veuillez réessayer"));
+		return "etudiantSupprimer";
 	}
 	
 	
