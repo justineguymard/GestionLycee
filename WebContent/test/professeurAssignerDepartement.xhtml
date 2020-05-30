@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Professeur</title>
+</h:head>
+<h:body>
+<ui:insert name="header">
+		<ui:include src="/ressources/template/header.xhtml" />
+	</ui:insert>
+<h1 style="text-align: center">Attribution d'un département</h1>
+
+<div style="display: inline-block">
+<h:form>
+
+<h:panelGrid columns="2" >
+
+		<h:outputLabel value="ID du professeur: " />
+		<h:inputText value="#{professeurMB.professeur.id}" required="true" />
+		
+		<h:outputLabel value="ID du département : " />
+		<h:inputText value="#{professeurMB.departement.id}" />
+		
+		<br/>
+		<h:commandButton value="Assigner" action="#{professeurMB.assignerDepartement}"  style="margin-left : 30px" />
+	
+	</h:panelGrid>
+
+</h:form>
+</div>
+
+
+<ui:insert name = "footer" >
+      <ui:include src = "/ressources/template/footer.xhtml" />
+</ui:insert>
+
+
+</h:body>
+</html>
