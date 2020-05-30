@@ -59,21 +59,17 @@ public class Professeur implements Serializable{
 		this.dateAff = dateAff;
 	}
 
-	public Professeur(String nom, String prenom) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-	
-	}
-	
 	
 
-	public Professeur(int id, String nom, String prenom) {
+	public Professeur(int id, String nom, String prenom, Date dateAff) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
+		this.dateAff = dateAff;
 	}
+
+
 
 	// declaration des getters et setters
 	public int getId() {
@@ -127,7 +123,8 @@ public class Professeur implements Serializable{
 	// redefinition de la methode toString
 	@Override
 	public String toString() {
-		return "Professeur [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateAff=" + dateAff + "]";
-	}
+		return "#" + id + ", " + nom + ", " + prenom + "";
 
+}
+	
 }

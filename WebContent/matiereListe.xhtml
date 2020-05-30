@@ -8,14 +8,30 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>TITRE</title>
+	<title>Matière</title>
 </h:head>
 <h:body>
 
 <ui:insert name="header">
 		<ui:include src="/ressources/template/header.xhtml" />
 	</ui:insert>
-<h1 style="text-align: center">TITRE</h1>
+<h1 style="text-align: center">Liste des matières </h1>
+
+<p:dataTable id="tbl1" var="mat" value="#{matiereMB.listeMatieres}">
+		<p:column headerText="ID" style="width : 1%">
+			<h:outputText value="#{mat.id}" />
+		</p:column>
+
+		<p:column headerText="Intitule"  style="width : 9%">
+			<h:outputText value="#{mat.intitule}" />
+		</p:column>
+		
+		<p:column headerText="Opérations" style="width : 15%" >
+			<h:outputText value="Modifier | Supprimer " />
+		</p:column>
+</p:dataTable>
+
+
 
 <ui:insert name = "footer" >
       <ui:include src = "/ressources/template/footer.xhtml" />

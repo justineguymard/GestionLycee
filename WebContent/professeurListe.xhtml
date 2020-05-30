@@ -21,9 +21,6 @@
 
 <br/>
 
-
-<h3>Liste des professeurs </h3>
-
 <p:dataTable id="tbl2" var="pr" value="#{professeurMB.listeProfesseurs}">
 		<p:column headerText="ID" style="width : 30px">
 			<h:outputText value="#{pr.id}" />
@@ -34,6 +31,11 @@
 		</p:column>
 		<p:column headerText="Prenom">
 			<h:outputText value="#{pr.prenom}" />
+		</p:column>
+		<p:column headerText="date d'affectation">
+			<h:outputText value="#{pr.dateAff}">
+			<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+			</h:outputText>
 		</p:column>
 		<p:column headerText="Departement (ID)">
 			<h:outputText value="#{pr.departement.nom} (#{pr.departement.id})"
@@ -49,6 +51,9 @@
 				rendered="#{pr.departement.id == NULL}" />
 		</p:column>
 		
+			<p:column headerText="Opérations" style="width : 15%" >
+			<h:outputText value="Modifier | Supprimer | Assigner" />
+		</p:column>
 
 	</p:dataTable>
 

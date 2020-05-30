@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import fr.inti.entities.Departement;
+import fr.inti.entities.Etudiant;
 import fr.inti.entities.Matiere;
 import fr.inti.entities.Professeur;
 import fr.inti.service.IProfesseurService;
@@ -107,6 +108,18 @@ public class ProfesseurManagedBean implements Serializable {
 		professeurService.AssignerMatiere(this.professeur, this.matiere);
 		return "professeurAssignerMatiere";
 }
+
+	public Professeur getProfesseur(Integer id) {
+		if (id == null ) {
+			throw new IllegalArgumentException ("no id provided");
+		}
+		for (Professeur professeur : listeProfesseurs) {
+			if (id.equals(professeur.getId())) {
+				return professeur;
+			}
+		}
+		return null;
+	}
 	
 	
 }

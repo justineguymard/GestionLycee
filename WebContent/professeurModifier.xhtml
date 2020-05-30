@@ -8,19 +8,19 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>TITRE</title>
+	<title>Professeur</title>
 </h:head>
 <h:body>
 <ui:insert name="header">
 		<ui:include src="/ressources/template/header.xhtml" />
 	</ui:insert>
 
-<h1 style="text-align: center">TITRE</h1>
+<h1 style="text-align: center">Modification d'un professeur</h1>
 
 
 <div style="display: inline-block">
 <h:form>
-<h3>Modifier un professeur</h3>
+
 <h:panelGrid columns="2" >
 
 		<h:outputLabel value="ID: " />
@@ -31,6 +31,9 @@
 		
 		<h:outputLabel value="Prenom: " />
 		<h:inputText value="#{professeurMB.professeur.prenom}" />
+		
+		<h:outputLabel value="Date : " />
+		 <p:calendar id="popup" value="#{professeurMB.professeur.dateAff}" />
 		
 		<br/>
 		<h:commandButton value="Modifier" action="#{professeurMB.modifierProfesseur}"  style="margin-left : 30px"/>

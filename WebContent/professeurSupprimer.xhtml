@@ -8,7 +8,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>TITRE</title>
+	<title>Professeur</title>
 </h:head>
 <h:body>
 
@@ -19,27 +19,26 @@
 <h1 style="text-align: center">Suppression d'un professeur</h1>
 
 
-
-
-<div style="display: inline-block">
 <h:form>
-<h3>Supprimer un professeur </h3>
-<h:panelGrid columns="2" >
 
-		<h:outputLabel value="ID: " />
-		<h:inputText value="#{professeurMB.professeur.id}" required="true" />
-	
-		<br/>
-		<h:commandButton value="Supprimer" action="#{professeurMB.supprimerProfesseur}" style="margin-left : 30px" />
-	
-	</h:panelGrid>
+<p:selectOneMenu id="longItemLabel" value="#{professeurMB.professeur}"
+			dynamic="true" >
+
+			<f:converter converterId="ConvertisseurProfesseur" />
+			<f:selectItems value="#{professeurMB.listeProfesseurs}" var="professeur"
+				itemValue="#{professeur}"
+				itemLabel="#{professeur.id}, #{professeur.nom}, #{professeur.prenom},#{professeur.dateAff}" />
+				
+
+		</p:selectOneMenu>
+ 		<h:commandButton value="Supprimer" 
+			action="#{professeurMB.supprimerProfesseur}" style="margin-left : 30px" ></h:commandButton>
+			
 
 </h:form>
-</div>
 
-<ui:insert name = "footer" >
-      <ui:include src = "/ressources/template/footer.xhtml" />
-</ui:insert>
+<br />
+<br />
 
 
 </h:body>
