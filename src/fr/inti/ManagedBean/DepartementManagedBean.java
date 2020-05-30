@@ -61,6 +61,7 @@ public class DepartementManagedBean implements Serializable {
 	public String ajouterDepartement() {
 		Departement verif = departementService.ajouterDepartement(this.departement);
 		if (verif != null) {
+			this.listeDepartements = departementService.getAllDepartements();
 			return "departementListe";
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null,
@@ -74,6 +75,7 @@ public class DepartementManagedBean implements Serializable {
 	public String modifierDepartement() {
 		Departement verif = departementService.ModifierDepartement(departement);
 		if (verif != null) {
+			this.listeDepartements = departementService.getAllDepartements();
 			return "departementListe";
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null,
@@ -85,6 +87,7 @@ public class DepartementManagedBean implements Serializable {
 	public String supprimerDepartement() {
 		int verif = departementService.SupprimerDepartement(this.departement);
 		if (verif != 0) {
+			this.listeDepartements = departementService.getAllDepartements();
 			return "departementtListe";
 
 		} else {

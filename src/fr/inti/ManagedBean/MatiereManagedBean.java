@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import fr.inti.entities.Matiere;
 import fr.inti.service.IMatiereService;
@@ -59,24 +61,65 @@ public class MatiereManagedBean implements Serializable {
 		// methodes metier
 
 		public String ajouterMatiere() {
-			matiereService.ajouterMatiere(this.matiere);
+			Matiere verif = matiereService.ajouterMatiere(this.matiere);
 			
-			return "matiereAjout";
+			if (verif !=  null) {
+				this.listeMatieres=matiereService.getAllMatieres();
+				return "matiereListe";
+
+			} else {
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage("Ajout impossible, veuillez réessayer"));
+				return "matiereAjout";
+			}
 
 		}
 
 		public String modifierMatiere() {
 			
-			matiereService.ModifierMatiere(this.matiere);
-			return "matiereModifier";
+			Matiere verif = matiereService.ModifierMatiere(this.matiere);
+			if (verif != null) {
+				this.listeMatieres=matiereService.getAllMatieres();
+				return "matiereListe";
+
+			} else {
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage("Modification impossible, veuillez réessayer"));
+				return "matiereModifier";
+			}
 
 		}
 
 		public String supprimerMatiere() {
-			matiereService.SupprimerMatiere(this.matiere);
-			return "matiereSupprimer";
+			int verif = matiereService.SupprimerMatiere(this.matiere);
+			if (verif != 0) {
+				this.listeMatieres=matiereService.getAllMatieres();
+				return "matiereListe";
+
+			} else {
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage("Suppression impossible, veuillez réessayer"));
+				return "matiereSupprimer";
+			}
 
 		}
+		
+		public Matiere getMatiere(Integer id) {
+			if (id == null) {
+				throw new IllegalArgumentException("no id provided");
+			}
+			for (Matiere matiere : listeMatieres) {
+				if (id.equals(matiere.getId())) {
+					return matiere;
+				}
+			}
+			return null;
+		}
+		
+		
+		
+		
+		
 	}
 
 

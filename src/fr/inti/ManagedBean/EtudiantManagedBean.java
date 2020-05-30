@@ -71,6 +71,7 @@ public class EtudiantManagedBean implements Serializable {
 	public String ajouterEtudiant() {
 		int verif = etudiantService.ajouterEtudiant(this.etudiant);
 		if (verif != 0) {
+			this.listeEtudiants = etudiantService.getAllEtudiants();
 			return "etudiantListe";
 
 		} else {
@@ -84,6 +85,7 @@ public class EtudiantManagedBean implements Serializable {
 	public String modifierEtudiant() {
 		int verif = etudiantService.modifierEtudiant(this.etudiant);
 		if (verif != 0) {
+			this.listeEtudiants = etudiantService.getAllEtudiants();
 			return "etudiantListe";
 
 		} else {
@@ -97,6 +99,7 @@ public class EtudiantManagedBean implements Serializable {
 	public String supprimerEtudiant() {
 		int verif = etudiantService.supprimerEtudiant(this.etudiant);
 		if (verif != 0) {
+			this.listeEtudiants = etudiantService.getAllEtudiants();
 			return "etudiantListe";
 
 		} else {
@@ -110,6 +113,7 @@ public class EtudiantManagedBean implements Serializable {
 		Etudiant verif = etudiantService.assignerEtudiant(this.etudiant, this.departement);
 		
 		if (verif != null) {
+			this.listeEtudiants = etudiantService.getAllEtudiants();
 			return "etudiantListe";
 
 		} else {
