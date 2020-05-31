@@ -16,12 +16,24 @@
 		<ui:include src="/ressources/template/header.xhtml" />
 	</ui:insert>
 
-<h1 style="text-align: center">Liste des Professeurs </h1>
+<h1 style="text-align: center">Recherche d'un Professeur </h1>
+
+<div style="display: inline-block">
+
+<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="ID: " />
+			<h:inputText value="#{professeurMB.professeur.id}" />
 
 
-<br/>
 
-<p:dataTable id="tbl2" var="pr" value="#{professeurMB.listeProfesseurs}">
+			<h:commandButton value="rechercher" action="#{professeurMB.Rechercher}" />
+		</h:panelGrid>
+
+	</h:form>
+</div>
+
+<p:dataTable id="tbl2" var="pr" value="#{professeurMB.listeProfesseurs}" rendered="#{professeurMB.indice}">
 		<p:column headerText="ID" style="width : 30px">
 			<h:outputText value="#{pr.id}" />
 		</p:column>
@@ -50,15 +62,19 @@
 			<h:outputText value="Non associé(e) à une matiere"
 				rendered="#{pr.departement.id == NULL}" />
 		</p:column>
-		
-			<p:column headerText="Opérations" style="width : 15%" >
-			<h:button value="Modifier" outcome="professeurModifier"/>
-			<h:button value="Supprimer" outcome="professeurSupprimer"/>
-			<h:button value="AssignerDept" outcome="professeurAssignerDepartement"/>
-			<h:button value="AssignerMatiere" outcome="professeurAssignerMatiere"/>
-		</p:column>
 
 	</p:dataTable>
 
+
+<h2>
+<h:messages />
+
+</h2>
+
+
+<ui:insert name = "footer" >
+      <ui:include src = "/ressources/template/footer.xhtml" />
+</ui:insert>
+	
 </h:body>
 </html>

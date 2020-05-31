@@ -18,21 +18,24 @@
 
 <h1 style="text-align: center">Suppression d'un département</h1>
 
-<div style="display: inline-block">
+
 <h:form>
 
-<h:panelGrid columns="2" >
+<p:selectOneMenu id="longItemLabel" value="#{departementMB.departement}"
+			dynamic="true" >
 
-		<h:outputLabel value="ID: " />
-		<h:inputText value="#{departementMB.departement.id}" required="true" />
-	
-		<br/>
-		<h:commandButton value="Supprimer" action="#{departementMB.supprimerDepartement}" style="margin-left : 30px" />
-	
-	</h:panelGrid>
+			<f:converter converterId="ConvertisseurDepartement" />
+			<f:selectItems value="#{departementMB.listeDepartements}" var="departement"
+				itemValue="#{departement}"
+				itemLabel="#{departement.id}, #{departement.nom}" />
+				
+
+		</p:selectOneMenu>
+ 		<h:commandButton value="Supprimer" 
+			action="#{departementMB.supprimerDepartement}" style="margin-left : 30px" ></h:commandButton>
 
 </h:form>
-</div>
+
 
 
 <ui:insert name = "footer" >

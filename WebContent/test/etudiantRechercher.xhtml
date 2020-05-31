@@ -8,20 +8,33 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Etudiant</title>
+	<title>Liste des Etudiants</title>
 </h:head>
 <h:body>
 
-	<ui:insert name="header">
+<ui:insert name="header">
 		<ui:include src="/ressources/template/header.xhtml" />
 	</ui:insert>
 
-	<h1 style="text-align: center">Liste des étudiants</h1>
+<h1 style="text-align: center">Recherche d'un Etudiant </h1>
 
-	
+<div style="display: inline-block">
 
 <h:form>
-	<p:dataTable id="tbl1" var="et" value="#{etudiantMB.listeEtudiants}">
+		<h:panelGrid columns="2">
+			<h:outputLabel value="ID: " />
+			<h:inputText value="#{etudiantMB.etudiant.id}" />
+
+
+
+			<h:commandButton value="rechercher" action="#{etudiantMB.RechercherEtudiant}" />
+		</h:panelGrid>
+
+	</h:form>
+</div>
+
+<h:form>
+	<p:dataTable id="tbl1" var="et" value="#{etudiantMB.listeEtudiants}" rendered="#{etudiantMB.indice}">
 		<p:column headerText="ID" style="width : 1%">
 			<h:outputText value="#{et.id}" />
 		</p:column>
@@ -40,16 +53,19 @@
 
 
 		</p:column>
-		<p:column headerText="Opérations" style="width : 15%" >
-			
-		<h:button value="Modifier" outcome="etudiantModifier"/> 
 		
-		<h:button value="Supprimer" outcome="etudiantSupprimer"/>	
-
-		<h:button value="Assigner" outcome="etudiantAssignerDepartement"/>
-		</p:column>
 
 	</p:dataTable>
 </h:form>
+
+<h2>
+<h:messages />
+
+</h2>
+
+<ui:insert name = "footer" >
+      <ui:include src = "/ressources/template/footer.xhtml" />
+</ui:insert>
+	
 </h:body>
 </html>
