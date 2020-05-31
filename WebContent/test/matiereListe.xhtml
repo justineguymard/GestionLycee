@@ -18,86 +18,106 @@
 <h:body>
 
 <ui:insert name="header">
-		<ui:include src="0header.xhtml" />
-</ui:insert>
-<h1 style="text-align: center">Liste des matières </h1>
-
-<p:dataTable id="tbl1" var="mat" value="#{matiereMB.listeMatieres}">
-		<p:column headerText="ID" style="width : 1%">
-			<h:outputText value="#{mat.id}" />
-		</p:column>
-
-		<p:column headerText="Intitule"  style="width : 9%">
-			<h:outputText value="#{mat.intitule}" />
-		</p:column>
+		<ui:include src="0header.xhtml"></ui:include></ui:insert>
+<h1 style="text-align: center;">Liste des matières </h1>
+<p:datatable id="tbl1" var="mat" value="#{matiereMB.listeMatieres}">
+		<p:column headertext="ID" style="width: 1%;">
+			<h:outputtext value="#{mat.id}">
+		</h:outputtext></p:column>
+		<p:column headertext="Intitule" style="width: 9%;">
+			<h:outputtext value="#{mat.intitule}">
+		</h:outputtext></p:column>
 		
-		<p:column headerText="Opérations" style="width : 15%" >
-			<h:button value="Modifier" outcome="matiereModifier"/> 
-		<h:button value="Supprimer" outcome="matiereSupprimer"/>	
-		</p:column>
-</p:dataTable>
-
-
-
-
-        <div id="footer-wrapper" class="footer-image-bg">
+		<p:column headertext="Opérations" style="width: 15%;">
+			<h:button value="Modifier" outcome="matiereModifier"> 
+		<h:button value="Supprimer" outcome="matiereSupprimer">	
+		</h:button></h:button></p:column></p:datatable>
+        
+<div id="footer-wrapper" class="footer-image-bg">
             
-                <div class="section-inner">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="widget about-us-widget">
-                                    <h4 class="widget-title"><strong>GIFTED  </strong>YOUNGSTERS</h4>
-                                    <p>The Xavier's School for Gifted Youngsters is a special institute founded and led by Professor Charles Xavier to train young mutants in controlling their powers and help foster a friendly human-mutant relationship. </p>
+                
+<div class="section-inner">
+                    
+<div class="container">
+                        
+<div class="row">
+                            
+<div class="col-md-4">
+                                
+<div class="widget about-us-widget">
+                                    
+<h4 class="widget-title"><strong>GIFTED  </strong>YOUNGSTERS</h4>
+                                    
+<p>The Xavier's School for Gifted Youngsters is a special institute founded and led by Professor Charles Xavier to train young mutants in controlling their powers and help foster a friendly human-mutant relationship. </p>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="widget">
-                                    <h4 class="widget-title"><strong>Raccourcis</strong></h4>
-                                    <div>
-                                        <div class="media">
-                                            <div class="pull-left">
+                            
+<div class="col-md-4">
+                                
+<div class="widget">
+                                    
+<h4 class="widget-title"><strong>Raccourcis</strong></h4>
+                                    
+<div>
+                                        
+<div class="media">
+                                            
+<div class="pull-left">
                                                 <img class="widget-img" src="assets/img/widget/widget1.jpg" alt="" />
                                             </div>
-                                            <div class="media-body">
+                                            
+<div class="media-body">
                                                 <span class="media-heading"><a href="etudiantListe.xhtml">Liste étudiants</a></span>
-                                                <small class="muted"></small>
+                                                <small class="muted" />
                                             </div>
                                         </div>
-                                        <div class="media">
-                                            <div class="pull-left">
+                                        
+<div class="media">
+                                            
+<div class="pull-left">
                                                 <img class="widget-img" src="assets/img/widget/widget3.jpg" alt="" />
                                             </div>
-                                            <div class="media-body">
+                                            
+<div class="media-body">
                                                 <span class="media-heading"><a href="professeurListe.xhtml">Liste professeur</a></span>
-                                                <small class="muted"></small>
+                                                <small class="muted" />
                                             </div>
                                         </div>
-                                        <div class="media">
-                                            <div class="pull-left">
+                                        
+<div class="media">
+                                            
+<div class="pull-left">
                                                 <img class="widget-img" src="assets/img/widget/widget2.jpg" alt="" />
                                             </div>
-                                            <div class="media-body">
+                                            
+<div class="media-body">
                                                 <span class="media-heading"><a href="departementListe.xhtml">Liste départements</a></span>
-                                                <small class="muted"></small>
+                                                <small class="muted" />
                                             </div>
                                         </div>
-                                        <div class="media">
-                                            <div class="pull-left">
+                                        
+<div class="media">
+                                            
+<div class="pull-left">
                                                 <img class="widget-img" src="assets/img/widget/widget4.jpg" alt="" />
                                             </div>
-                                            <div class="media-body">
+                                            
+<div class="media-body">
                                                 <span class="media-heading"><a href="matiereListe.xhtml">Liste Matières</a></span>
-                                                <small class="muted"></small>
+                                                <small class="muted" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="widget">
-                                    <h4 class="widget-title">Popular Tags</h4>
-                                    <div class="tagcloud">
+                            
+<div class="col-md-4">
+                                
+<div class="widget">
+                                    
+<h4 class="widget-title">Popular Tags</h4>
+                                    
+<div class="tagcloud">
                                         <a href="#" class="tag-link btn btn-theme btn-white btn-xs smoothie" title="3 topics">Mutation</a>
                                         <a href="#" class="tag-link btn btn-theme btn-white btn-xs smoothie" title="3 topics">Professeurs</a>
                                         <a href="#" class="tag-link btn btn-theme btn-white btn-xs smoothie" title="3 topics">Pouvoirs</a>
@@ -117,14 +137,17 @@
                     </div>
                 </div>
             
-
             <footer class="white-wrapper">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 text-left match-height">
+                
+<div class="container">
+                    
+<div class="row">
+                        
+<div class="col-md-6 text-left match-height">
                            
                        
-                            <div class="vertical-center">
+                            
+<div class="vertical-center">
                                 <span class="copyright">Copyright 2019. Designed by DISTINCTIVE THEMES</span>
                             </div>
                         </div>
@@ -132,65 +155,87 @@
                 </div>
             </footer>
         </div>
-
     
-
-    <div class="flexpanel">
-        <div class="viewport-wrap">
-            <div class="viewport">
-                <div class="widget mb50">
-                    <h4 class="widget-title">Latest Articles</h4>
-                    <div>
-                        <div class="media">
-                            <div class="pull-left">
-                                <img class="widget-img" src="assets/img/widget/widget1.jpg" alt="">
+    
+<div class="flexpanel">
+        
+<div class="viewport-wrap">
+            
+<div class="viewport">
+                
+<div class="widget mb50">
+                    
+<h4 class="widget-title">Latest Articles</h4>
+                    
+<div>
+                        
+<div class="media">
+                            
+<div class="pull-left">
+                                <img class="widget-img" src="assets/img/widget/widget1.jpg" alt="" />
                             </div>
-                            <div class="media-body">
+                            
+<div class="media-body">
                                 <span class="media-heading"><a href="#">Panic In London</a></span>
                                 <small class="muted">Posted 14 April 2015</small>
                             </div>
                         </div>
-                        <div class="media">
-                            <div class="pull-left">
-                                <img class="widget-img" src="assets/img/widget/widget2.jpg" alt="">
+                        
+<div class="media">
+                            
+<div class="pull-left">
+                                <img class="widget-img" src="assets/img/widget/widget2.jpg" alt="" />
                             </div>
-                            <div class="media-body">
+                            
+<div class="media-body">
                                 <span class="media-heading"><a href="#">New iPhone News</a></span>
                                 <small class="muted">Posted 14 April 2015</small>
                             </div>
                         </div>
-                        <div class="media">
-                            <div class="pull-left">
-                                <img class="widget-img" src="assets/img/widget/widget3.jpg" alt="">
+                        
+<div class="media">
+                            
+<div class="pull-left">
+                                <img class="widget-img" src="assets/img/widget/widget3.jpg" alt="" />
                             </div>
-                            <div class="media-body">
+                            
+<div class="media-body">
                                 <span class="media-heading"><a href="#">Our Year In Review</a></span>
                                 <small class="muted">Posted 14 April 2015</small>
                             </div>
                         </div>
-                        <div class="media">
-                            <div class="pull-left">
-                                <img class="widget-img" src="assets/img/widget/widget4.jpg" alt="">
+                        
+<div class="media">
+                            
+<div class="pull-left">
+                                <img class="widget-img" src="assets/img/widget/widget4.jpg" alt="" />
                             </div>
-                            <div class="media-body">
+                            
+<div class="media-body">
                                 <span class="media-heading"><a href="#">jQuery Tutorial</a></span>
                                 <small class="muted">Posted 14 April 2015</small>
                             </div>
                         </div>
-                        <div class="media">
-                            <div class="pull-left">
-                                <img class="widget-img" src="assets/img/widget/widget5.jpg" alt="">
+                        
+<div class="media">
+                            
+<div class="pull-left">
+                                <img class="widget-img" src="assets/img/widget/widget5.jpg" alt="" />
                             </div>
-                            <div class="media-body">
+                            
+<div class="media-body">
                                 <span class="media-heading"><a href="#">Sheen Interview</a></span>
                                 <small class="muted">Posted 14 April 2015</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="widget mb50">
-                    <h4 class="widget-title"><strong>Latest</strong> Articles</h4>
-                    <div class="tagcloud">
+                
+<div class="widget mb50">
+                    
+<h4 class="widget-title"><strong>Latest</strong> Articles</h4>
+                    
+<div class="tagcloud">
                         <a href="#" class="tag-link btn btn-theme btn-xs" title="3 topics">Local</a>
                         <a href="#" class="tag-link btn btn-theme btn-xs" title="3 topics">Business</a>
                         <a href="#" class="tag-link btn btn-theme btn-xs" title="3 topics">Media</a>
@@ -205,27 +250,20 @@
                         <a href="#" class="tag-link btn btn-theme btn-xs" title="3 topics">MP3</a>
                     </div>
                 </div>
-                <div class="widget about-us-widget mb50">
-                    <h4 class="widget-title">About Kompleet</h4>
-                    <p>Professionally monetize team building materials for 24/7 results. Holisticly transition corporate platforms vis-a-vis cutting-edge experiences. Dynamically strategize ubiquitous applications for premier initiatives. Interactively seize resource sucking niche markets.</p>
+                
+<div class="widget about-us-widget mb50">
+                    
+<h4 class="widget-title">About Kompleet</h4>
+                    
+<p>Professionally monetize team building materials for 24/7 results. Holisticly transition corporate platforms vis-a-vis cutting-edge experiences. Dynamically strategize ubiquitous applications for premier initiatives. Interactively seize resource sucking niche markets.</p>
                 </div>
             </div>
         </div>
     </div>
-</h:body>
+    
+    
+    
+    </h:body>
+    </html>
+    
   
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
-
-
-
-
-
-</html>
