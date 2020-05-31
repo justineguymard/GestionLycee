@@ -5,93 +5,191 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	>
 
 <h:head>
-	<title>Professeur</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="description" content="" />
+
+<meta name="author" content="" />
+<link rel="shortcut icon" href="assets/img/ico/favicon.ico" />
+<link rel="apple-touch-icon"
+	href="assets/img/ico/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon"
+	href="assets/img/ico/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon"
+	href="assets/img/ico/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon"
+	href="assets/img/ico/apple-touch-icon-57x57.png" />
+
+<title>Assigner Matiere</title>
+<!-- Bootstrap Core CSS -->
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/animate.css" rel="stylesheet" />
+<link href="assets/css/plugins.css" rel="stylesheet" />
+<!-- Custom CSS -->
+<link href="assets/css/style.css" rel="stylesheet" />
+<!-- Custom Fonts -->
+<link href="assets/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="assets/css/pe-icons.css" rel="stylesheet" />
 </h:head>
-<h:body>
 
-	<ui:insert name="header">
-		<ui:include src="/ressources/template/header.xhtml" />
-	</ui:insert>
-
-	<h1 style="text-align: center">Attribution d'une matière</h1>
+<h:body id="page-top" class="index">
 
 
-	<div style="display: inline-block">
-		<h:form>
 
-			<h:panelGrid columns="2">
 
-				<h:outputLabel value="ID du professeur: " />
-				<h:inputText value="#{professeurMB.professeur.id}" required="true" />
+<ui:insert name="header">
+		<ui:include src="Header.xhtml"></ui:include>
+</ui:insert>
 
-				<h:outputLabel value="ID de la matiere : " />
-				<h:inputText value="#{professeurMB.matiere.id}" />
 
-				<br />
-				<h:commandButton value="Assigner"
-					action="#{professeurMB.assignerMatiere}" style="margin-left : 30px" />
 
-			</h:panelGrid>
 
-		</h:form>
+
+
+
+	<section class="dark-wrapper opaqued parallax" data-parallax="scroll"
+		  data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
+
+	<div  style="background-image: url(assets/img/bg/bg2.jpg); background-size:  100%" class="section-inner pad-top-200">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-lg-12 mt30 wow text-center">
+
+					<h2 class="section-heading">Assignation d'un département à un professeur</h2>
+				</div>
+			</div>
+		</div>
 	</div>
+	</section>
+	<section id="welcome">
 
-	<br />
-	<br />
-	<br />
-	<br />
+	<div class="section-inner nopaddingbottom">
 
-	<div style="display: inline-block; width: 95%; margin-left: 2%">
+		<div class="container">
 
+			<div class="row">
 
-		<p:dataTable var="pr" value="#{professeurMB.profSansMatiere}"
-			style="width : 62%;vertical-align:top; float:left">
-			<f:facet name="header">Liste des professeurs sans assignation</f:facet>
-			<p:column headerText="ID" style="width : 2%">
-				<h:outputText value="#{pr.id}" />
-			</p:column>
+				<div class="col-md-8 col-md-offset-2 mb100"></div>
 
-			<p:column headerText="Nom" style="width : 9%">
-				<h:outputText value="#{pr.nom}" />
-			</p:column>
-			<p:column headerText="Prenom" style="width : 9%">
-				<h:outputText value="#{pr.prenom}" />
-			</p:column>
-			<p:column headerText="date d'affectation">
-				<h:outputText value="#{pr.dateAff}">
-					<f:convertDateTime type="date" pattern="dd/MM/yyyy" />
-				</h:outputText>
-			</p:column>
-			<p:column headerText="Matiere (ID)" style="width : 15%">
-				<h:outputText value="#{pr.matiere} (#{pr.matiere.id})"
-					rendered="#{pr.matiere.id != NULL}" />
-				<h:outputText value="Non associé(e) à une matière"
-					rendered="#{pr.matiere.id == NULL}" />
+				<div class="col-md-8 col-md-offset-2">
 
-			</p:column>
-
-		</p:dataTable>
+					<div id="message"  />
+					
+					
+					
+					<h:form method="post" action="sendemail.php" id="contactform"
+						class="main-contact-form wow">
+						
+						<h3>Formulaire d'assignation</h3>
 
 
-		<p:dataTable var="mat" value="#{matiereMB.listeMatieres}"
-			style="width : 35%; vertical-align:top; float :right">
-			<f:facet name="header">Liste des matières disponibles</f:facet>
-			<p:column headerText="Matière (ID)">
-				<h:outputText value="#{mat.intitule} (#{mat.id})" />
-			</p:column>
+						<h:inputText class="form-control col-md-4" id="nom" name="name"
+							placeholder="Nom *" value="#{professeurMB.professeur.id}"
+							required="true" />
+						<p:watermark for="nom" value="ID du professeur*" />
+
+						<h:inputText class="form-control col-md-4" id="prenom" name="prenom"
+							placeholder="Prenom *" value="#{professeurMB.matiere.id}"
+							required="true" />
+						<p:watermark for="prenom" value="ID du département *" />
 
 
-		</p:dataTable>
+						<br />
+						<h:commandButton value="Assigner"
+							action="#{professeurMB.assignerMatiere}"
+							style="text-align : center" />
+
+
+
+					</h:form>
+					
+
+		</div>
+		
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	
+	<br/>
+	<br/>
+	
+
+	
+	<div  style="display: inline-block; width: 95%; margin-left: 2%; margin-top: 5%" >
+	
+
+	<p:dataTable var="pro" value="#{professeurMB.profSansMatiere}" style="width : 62%;vertical-align:top; float:left"  >
+		<f:facet name="header">Liste des professeurs sans assignation</f:facet>
+		<p:column headerText="ID" style="width : 3%">
+			<h:outputText value="#{pro.id}" />
+		</p:column>
+
+		<p:column headerText="Nom"  style="width : 9%">
+			<h:outputText value="#{pro.nom}" />
+		</p:column>
+		<p:column headerText="Prenom"  style="width : 9%">
+			<h:outputText value="#{pro.prenom}" />
+		</p:column>
+		<p:column headerText="date d'affectation" style="width : 9%">
+			<h:outputText value="#{pro.dateAff}">
+		<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+			</h:outputText>
+		</p:column>
+		
+		<p:column headerText="Matiere (ID)" style="width : 15%">
+			<h:outputText value="#{pro.matiere.intitule} (#{pro.matiere.id})"
+				rendered="#{pro.matiere.id != NULL}" />
+			<h:outputText value="Non associé(e) à une matiere"
+				rendered="#{pro.matiere.id == NULL}" />
+
+		</p:column>
+		
+	</p:dataTable>
+	
+	
+
+	<p:dataTable var="mat" value="#{matiereMB.listeMatieres}"  style="width : 35%; vertical-align:top; float :right">
+		<f:facet name="header">Liste des départements disponibles</f:facet>
+		<p:column headerText="Matiere (ID)" >
+			<h:outputText value="#{mat.intitule} (#{mat.id})" />
+		</p:column>
+		
+
+	</p:dataTable>
+
+	<h2>
+<h:messages />
+
+</h2>
+		
+				</div>
+			</div>
+		</div>
 	</div>
+	</section>
+	
+	
+	        
 
+    <ui:insert name="header">
+		<ui:include src="Footer.xhtml">
+	</ui:include></ui:insert>
+  
 
-	<ui:insert name="footer">
-		<ui:include src="/ressources/template/footer.xhtml" />
-	</ui:insert>
-
-
+	
+	
+	
+	
+	
 </h:body>
+
 </html>

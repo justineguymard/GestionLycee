@@ -100,7 +100,9 @@
 		<p:column headerText="Nom"  style="width : 40%">
 			<h:outputText value="#{pro.nom}" />
 		</p:column>
-		
+		<p:column headerText="Prenom"  style="width : 40%">
+			<h:outputText value="#{pro.prenom}" />
+		</p:column>
 		<p:column headerText="date d'affectation" style="width : 40%">
 			<h:outputText value="#{pro.dateAff}">
 			<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
