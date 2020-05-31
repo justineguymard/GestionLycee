@@ -12,28 +12,66 @@
 </h:head>
 <h:body>
 
-<ui:insert name="header">
-		<ui:include src="/ressources/template/header.xhtml" />
+	<ui:insert name="header">
+		<ui:include src="0header.xhtml" />
 	</ui:insert>
-	
-<h1 style="text-align: center"> Ajout d'un département</h1>
 
-	<h:form>
-		
+	<div
+		style="background-image: url(assets/img/bg/bg2.jpg); background-size: 100%"
+		class="section-inner pad-top-50">
 
-				<h:panelGrid columns="2">
+		<div class="container">
 
-					<h:outputLabel value="Nom: " />
-					<h:inputText value="#{departementMB.departement.nom}" required="true" />
+			<div class="row">
 
-					<br />
-					<h:commandButton value="Ajouter"
-						action="#{departementMB.ajouterDepartement}" style="text-align : center" />
+				<div class="col-lg-12 mt30 wow text-center">
 
-				</h:panelGrid>
+					<h2 class="section-heading">Ajout d'un département</h2>
+				</div>
+			</div>
+		</div>
+	</div>
 
-			</h:form>
-		
+	<section id="welcome">
+
+	<div class="section-inner nopaddingbottom">
+
+		<div class="container">
+
+			<div class="row">
+
+
+
+				<div class="col-md-8 col-md-offset-2 mb100"></div>
+
+				<div class="col-md-8 col-md-offset-2">
+
+					<div id="message" />
+					<h:form method="post" action="sendemail.php" id="contactform"
+						class="main-contact-form wow">
+
+						<h3>Ajouter un departement</h3>
+
+						<input type="text" class="form-control col-md-4" name="name"
+							placeholder="Nom *" value="#{departementMB.departement.nom}"
+							required="Please enter your name." />
+
+
+						<br />
+
+						<h:commandButton value="Ajouter"
+							action="#{departementMB.ajouterDepartement}"
+							style="text-align : center" />
+
+
+
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
 
 
 </h:body>
