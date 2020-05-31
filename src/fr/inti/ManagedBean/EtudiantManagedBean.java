@@ -89,7 +89,7 @@ public class EtudiantManagedBean implements Serializable {
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage("Ajout impossible, veuillez réessayer"));
-			return "etudiantAjout";
+			return "00_TestFormatAjout";
 		}
 
 	}
