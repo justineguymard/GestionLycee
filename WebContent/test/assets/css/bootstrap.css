@@ -27,6 +27,8 @@ section,
 summary {
   display: block;
 }
+
+
 audio,
 canvas,
 progress,
@@ -3780,6 +3782,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-header {
     float: left;
+    
   }
 }
 .navbar-collapse {

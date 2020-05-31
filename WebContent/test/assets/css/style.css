@@ -1964,6 +1964,8 @@ footer.white-wrapper .social-links li a {
     .boxed-layout .master-wrapper {
         max-width: 1600px;
         margin: 0 auto;
+        min-height: 120px;
+        height: 140px;
     }
 }
 
@@ -1971,6 +1973,8 @@ footer.white-wrapper .social-links li a {
     .boxed-layout .master-wrapper {
         max-width: 1600px;
         margin: 0 auto;
+        min-height: 120px;
+        height: 140px;
     }
     .boxed-layout .navbar-fixed-top {
         max-width: 1600px;
@@ -2238,6 +2242,8 @@ footer.white-wrapper .social-links li a {
 
 .side-nav-active .master-wrapper {
     padding-left: 280px;
+    min-height: 120px;
+        height: 140px;
 }
 
 .side-nav-active .navbar-fixed-top {
@@ -2327,6 +2333,8 @@ footer.white-wrapper .social-links li a {
     }
     .side-nav-active .master-wrapper {
         padding-left: 0;
+        min-height: 120px;
+        height: 140px;
     }
     #side-wrapper .navbar-default .nav li a {
         padding: 10px 20px;
