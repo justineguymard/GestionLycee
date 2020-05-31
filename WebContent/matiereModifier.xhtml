@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -8,38 +8,119 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Etudiant</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<meta name="description" content="" />
+
+	<meta name="author" content="" />
+	<link rel="shortcut icon" href="assets/img/ico/favicon.ico" />
+	<link rel="apple-touch-icon"
+		href="assets/img/ico/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon"
+		href="assets/img/ico/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon"
+		href="assets/img/ico/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon"
+		href="assets/img/ico/apple-touch-icon-57x57.png" />
+
+	<title>Modification Matiere</title>
+	<!-- Bootstrap Core CSS -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/css/animate.css" rel="stylesheet" />
+	<link href="assets/css/plugins.css" rel="stylesheet" />
+	<!-- Custom CSS -->
+	<link href="assets/css/style.css" rel="stylesheet" />
+	<!-- Custom Fonts -->
+	<link href="assets/font-awesome/css/font-awesome.min.css"
+		rel="stylesheet" type="text/css" />
+	<link href="assets/css/pe-icons.css" rel="stylesheet" />
 </h:head>
-<h:body>
 
-<ui:insert name="header">
-		<ui:include src="/ressources/template/header.xhtml" />
+<h:body id="page-top" class="index">
+
+
+
+
+	<ui:insert name="header">
+		<ui:include src="Header.xhtml"></ui:include>
 	</ui:insert>
-	<h1 style="text-align: center">Modification d'une matière </h1>
 
 
 
-		<div style="display: inline-block">
-			<h:form>
-				
-				<h:panelGrid columns="2">
-
-					<h:outputLabel value="ID: " />
-					<h:inputText value="#{matiereMB.matiere.id}" required="true" />
-
-					<h:outputLabel value="matière: " />
-					<h:inputText value="#{matiereMB.matiere.intitule}" />
 
 
 
-					<br />
-					<h:commandButton value="Modifier"
-						action="#{matiereMB.modifierMatiere}" style="margin-left : 30px" />
 
-				</h:panelGrid>
+	<section class="dark-wrapper opaqued parallax" data-parallax="scroll"
+		data-image-src="assets/img/bg/bg2.jpg" data-speed="0.7">
 
-			</h:form>
+		<div
+			style="background-image: url(assets/img/bg/bg2.jpg); background-size: 100%"
+			class="section-inner pad-top-200">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-lg-12 mt30 wow text-center">
+
+						<h2 class="section-heading">Modification Matiere</h2>
+					</div>
+				</div>
+			</div>
 		</div>
+	</section>
+	<section id="welcome">
+
+		<div class="section-inner nopaddingbottom">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-md-8 col-md-offset-2 mb100"></div>
+
+					<div class="col-md-8 col-md-offset-2">
+
+						<div id="message" />
+						<h:form method="post" action="sendemail.php" id="contactform"
+							class="main-contact-form wow">
+
+							<h3>modifier une matière</h3>
+
+							<h:inputText class="form-control col-md-4" name="name"
+								placeholder="ID" value="#{matiereMB.matiere.id}" required="true" />
+							<h:inputText class="form-control col-md-4" name="name"
+								placeholder="Intitule " value="#{matiereMB.matiere.intitule}"
+								required="true" />
+
+
+							<br />
+							<h:commandButton value="Modifier "
+								action="#{matiereMB.modifierMatiere}" style="text-align : center" />
+
+
+
+						</h:form>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+	<ui:insert name="header">
+		<ui:include src="Footer.xhtml">
+		</ui:include>
+	</ui:insert>
+
+
+
+
 
 
 
