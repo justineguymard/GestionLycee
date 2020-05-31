@@ -187,5 +187,22 @@ public class ProfesseurManagedBean implements Serializable {
 	
 
 	}
+	
+ public String Rechercher() {
+	 
+	 Professeur verif = professeurService.getProfesseurById(this.professeur);
+
+		if (verif != null) {
+			this.listeProfesseurs = professeurService.getAllProfesseurs();
+			return "professeurListe";
+
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage("Recherche impossible, identifiant invalide"));
+			return "professeurRechercher";
+		}
+
+ }
+	
 
 }

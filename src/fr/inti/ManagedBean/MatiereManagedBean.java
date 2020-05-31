@@ -10,6 +10,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import fr.inti.entities.Matiere;
+import fr.inti.entities.Matiere;
 import fr.inti.service.IMatiereService;
 import fr.inti.service.MatiereServiceImpl;
 
@@ -116,9 +117,21 @@ public class MatiereManagedBean implements Serializable {
 			return null;
 		}
 		
+		 public String RechercherMatiere() {
+			 
+			 Matiere verif = matiereService.getMatiereById(this.matiere);
+
+				if (verif != null) {
+					this.listeMatieres = matiereService.getAllMatieres();
+					return "matiereListe";
+
+				} else {
+					FacesContext.getCurrentInstance().addMessage(null,
+							new FacesMessage("Recherche impossible, identifiant invalide"));
+					return "matiereRechercher";
+				}
 		
-		
-		
+		 }	
 		
 	}
 

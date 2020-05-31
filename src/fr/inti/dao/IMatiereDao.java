@@ -13,4 +13,6 @@ public Matiere AjouterMatiere(Matiere matiere);
 	public void SupprimerMatiere(Matiere matiere);
 
 	public List<Matiere> getAllMatieres ();
+	
+	public Matiere getMatiereById(Matiere matiere);
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.inti.entities.Departement;
 
+
 public interface IDepartementDao {
 	
 	public Departement AjouterDepartement(Departement departement);
@@ -14,4 +15,5 @@ public interface IDepartementDao {
 
 	public List<Departement> getAllDepartements ();
 
+	public Departement getDepartementById(Departement departement);
 }

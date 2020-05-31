@@ -17,5 +17,7 @@ public interface IEtudiantDao {
 	public Etudiant assignerDepartement (Etudiant etudiant, Departement departement);
 	
 	public List<Etudiant> getAllEtudiants ();
+	
+	public Etudiant getEtudiantById(Etudiant etudiant);
 
 }

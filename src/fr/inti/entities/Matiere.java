@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 import javax.persistence.Table;
@@ -16,6 +16,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "matieres")
 @SuppressWarnings("serial")
+@NamedQuery(name= "reqOneMatiere", query = "SELECT m FROM Matiere m WHERE m.id=:mId")
 public class Matiere implements Serializable {
 
 	@Id

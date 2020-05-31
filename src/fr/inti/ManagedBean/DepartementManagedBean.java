@@ -10,6 +10,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import fr.inti.entities.Departement;
+import fr.inti.entities.Professeur;
 import fr.inti.service.IDepartementService;
 import fr.inti.service.DepartementServiceImpl;
 
@@ -110,4 +111,19 @@ public class DepartementManagedBean implements Serializable {
 		}
 		return null;
 	}
+	
+	 public String Rechercher() {
+		 
+		 Departement verif = departementService.getDepartementById(this.departement);
+
+			if (verif != null) {
+				this.listeDepartements = departementService.getAllDepartements();
+				return "departementListe";
+
+			} else {
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage("Recherche impossible, identifiant invalide"));
+				return "departementRechercher";
+			}
+	 }
 }

@@ -7,6 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+
 
 import fr.inti.entities.Departement;
 import fr.inti.entities.Matiere;
@@ -151,7 +153,23 @@ public class ProfesseurDaoImpl implements IProfesseurDao{
 	@Override
 	public Professeur getProfesseurById(Professeur professeur) {
 		
-		return null;
+		// recuperer l'entityManagerFactory
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("puGestionLycee");
+
+		// recuperer entityManager
+		EntityManager em = emf.createEntityManager();
+		
+		//recuperer un professeur par son id en utilisant les requetes nommees 
+
+		TypedQuery queryOneProfesseur=em.createNamedQuery("reqOneProfesseur",Professeur.class);
+		
+		// passage des parametres de la requete
+		queryOneProfesseur.setParameter("pId",professeur.getId());
+		// envoyer la requete et recuperer le resultat
+		Professeur eOneProfesseur= (Professeur) queryOneProfesseur.getSingleResult();
+		
+	return eOneProfesseur;
+
 
 	}
 
@@ -231,7 +249,7 @@ public class ProfesseurDaoImpl implements IProfesseurDao{
 		//commit la transaction pour envoyer concretement ces modifs à la bd
 		tx.commit();
 		
-return pAssign2;
+		return pAssign2;
 		
 
 		} catch (Exception e) {

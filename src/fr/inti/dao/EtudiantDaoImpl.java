@@ -7,9 +7,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import fr.inti.entities.Departement;
 import fr.inti.entities.Etudiant;
+import fr.inti.entities.Matiere;
 
 public class EtudiantDaoImpl implements IEtudiantDao {
 
@@ -196,5 +198,26 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 
 		return listeEtudiantsJPQL;
 	}
+
+		@Override
+		public Etudiant getEtudiantById(Etudiant etudiant) {
+			
+			// recuperer l'entityManagerFactory
+			EntityManagerFactory emf = Persistence.createEntityManagerFactory("puGestionLycee");
+
+			// recuperer entityManager
+			EntityManager em = emf.createEntityManager();
+			
+			//recuperer un etudiant par son id en utilisant les requetes nommees 
+
+			TypedQuery queryOneEtudiant=em.createNamedQuery("reqOneEtudiant",Etudiant.class);
+			
+			// passage des parametres de la requete
+			queryOneEtudiant.setParameter("eId",etudiant.getId());
+			// envoyer la requete et recuperer le resultat
+			Etudiant eOneEtudiant= (Etudiant) queryOneEtudiant.getSingleResult();
+			
+			return eOneEtudiant;
+		}
 
 }

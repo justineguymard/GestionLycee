@@ -36,4 +36,10 @@ public class MatiereServiceImpl implements IMatiereService {
 		return matDao.getAllMatieres();
 	}
 
+	@Override
+	public Matiere getMatiereById(Matiere matiere) {
+		// TODO Auto-generated method stub
+		return matDao.getMatiereById(matiere);
+	}
+
 }

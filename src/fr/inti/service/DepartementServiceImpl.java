@@ -45,4 +45,10 @@ public class DepartementServiceImpl implements IDepartementService{
 		return depDao.getAllDepartements();
 	}
 
+	@Override
+	public Departement getDepartementById(Departement departement) {
+		
+		return depDao.getDepartementById(departement);
+	}
+
 }

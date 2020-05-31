@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,6 +18,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="professeurs")
 @SuppressWarnings("serial")
+@NamedQuery(name= "reqOneProfesseur", query = "SELECT p FROM Professeur as p WHERE p.id=:pId")
 public class Professeur implements Serializable{
 
 	// declaration des attributs

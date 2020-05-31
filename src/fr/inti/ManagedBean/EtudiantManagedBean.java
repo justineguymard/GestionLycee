@@ -12,6 +12,7 @@ import javax.faces.context.FacesContext;
 
 import fr.inti.entities.Departement;
 import fr.inti.entities.Etudiant;
+import fr.inti.entities.Professeur;
 import fr.inti.service.EtudiantServiceImpl;
 import fr.inti.service.IEtudiantService;
 
@@ -146,5 +147,20 @@ public class EtudiantManagedBean implements Serializable {
 		}
 		return listeEtudiantsNonAssign;
 	}
+	
+	 public String RechercherEtudiant() {
+		 
+		 Etudiant verif = etudiantService.getEtudiantById(this.etudiant);
 
+			if (verif != null) {
+				this.listeEtudiants = etudiantService.getAllEtudiants();
+				return "etudiantListe";
+
+			} else {
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage("Recherche impossible, identifiant invalide"));
+				return "etudiantRechercher";
+			}
+
+}
 }
