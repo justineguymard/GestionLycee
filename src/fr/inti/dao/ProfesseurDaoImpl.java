@@ -7,10 +7,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
+
 
 
 import fr.inti.entities.Departement;
+
 import fr.inti.entities.Matiere;
 import fr.inti.entities.Professeur;
 
@@ -161,14 +162,14 @@ public class ProfesseurDaoImpl implements IProfesseurDao{
 		
 		//recuperer un professeur par son id en utilisant les requetes nommees 
 
-		TypedQuery queryOneProfesseur=em.createNamedQuery("reqOneProfesseur",Professeur.class);
+		Professeur eOut = em.find(Professeur.class, professeur.getId()) ;
 		
-		// passage des parametres de la requete
-		queryOneProfesseur.setParameter("pId",professeur.getId());
-		// envoyer la requete et recuperer le resultat
-		Professeur eOneProfesseur= (Professeur) queryOneProfesseur.getSingleResult();
+		System.out.println(eOut);
 		
-	return eOneProfesseur;
+		em.close();
+		emf.close();
+		
+		return eOut;
 
 
 	}

@@ -33,6 +33,35 @@
 	</h:form>
 </div>
 
+<h:form>
+	<p:dataTable id="tbl1" var="et" value="#{etudiantMB.listeEtudiants}" rendered="#{etudiantMB.indice}">
+		<p:column headerText="ID" style="width : 1%">
+			<h:outputText value="#{et.id}" />
+		</p:column>
+
+		<p:column headerText="Nom"  style="width : 9%">
+			<h:outputText value="#{et.nom}" />
+		</p:column>
+		<p:column headerText="Prenom"  style="width : 9%">
+			<h:outputText value="#{et.prenom}" />
+		</p:column>
+		<p:column headerText="Departement (ID)" style="width : 15%">
+			<h:outputText value="#{et.departement.nom} (#{et.departement.id})"
+				rendered="#{et.departement.id != NULL}" />
+			<h:outputText value="Non associé(e) à un département"
+				rendered="#{et.departement.id == NULL}" />
+
+
+		</p:column>
+		
+
+	</p:dataTable>
+</h:form>
+
+<h2>
+<h:messages />
+
+</h2>
 
 <ui:insert name = "footer" >
       <ui:include src = "/ressources/template/footer.xhtml" />

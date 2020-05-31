@@ -26,6 +26,7 @@ public class ProfesseurManagedBean implements Serializable {
 	private List<Professeur> listeProfesseurs;
 	private Departement departement;
 	private Matiere matiere;
+private boolean indice;
 
 	// association uml en java
 
@@ -43,6 +44,7 @@ public class ProfesseurManagedBean implements Serializable {
 		this.listeProfesseurs = professeurService.getAllProfesseurs();
 		this.departement = new Departement();
 		this.matiere = new Matiere();
+		this.indice = false;
 	}
 
 	public Professeur getProfesseur() {
@@ -67,6 +69,14 @@ public class ProfesseurManagedBean implements Serializable {
 
 	public void setDepartement(Departement departement) {
 		this.departement = departement;
+	}
+
+	public boolean isIndice() {
+		return indice;
+	}
+
+	public void setIndice(boolean indice) {
+		this.indice = indice;
 	}
 
 	public Matiere getMatiere() {
@@ -191,12 +201,16 @@ public class ProfesseurManagedBean implements Serializable {
  public String Rechercher() {
 	 
 	 Professeur verif = professeurService.getProfesseurById(this.professeur);
-
+	 List<Professeur> testListe = new ArrayList<Professeur>();
 		if (verif != null) {
-			this.listeProfesseurs = professeurService.getAllProfesseurs();
-			return "professeurListe";
+			this.indice =true;
+			System.out.println(verif);
+			testListe.add(verif);
+			this.listeProfesseurs=testListe;
+			return "professeurRechercher";
 
 		} else {
+			this.indice =false; 
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage("Recherche impossible, identifiant invalide"));
 			return "professeurRechercher";

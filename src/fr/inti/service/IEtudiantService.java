@@ -5,7 +5,7 @@ import java.util.List;
 
 import fr.inti.entities.Departement;
 import fr.inti.entities.Etudiant;
-import fr.inti.entities.Etudiant;
+
 
 public interface IEtudiantService {
 	

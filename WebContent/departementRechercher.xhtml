@@ -33,6 +33,23 @@
 	</h:form>
 </div>
 
+<p:dataTable id="tbl1" var="dept" value="#{departementMB.listeDepartements}" rendered="#{departementMB.indice}">
+		<p:column headerText="ID" style="width : 1%">
+			<h:outputText value="#{dept.id}" />
+		</p:column>
+
+		<p:column headerText="Nom"  style="width : 9%">
+			<h:outputText value="#{dept.nom}" />
+		</p:column>
+		
+	
+</p:dataTable>
+
+
+<h2>
+<h:messages />
+
+</h2>
 
 <ui:insert name = "footer" >
       <ui:include src = "/ressources/template/footer.xhtml" />

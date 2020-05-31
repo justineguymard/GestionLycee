@@ -7,9 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 
-import fr.inti.entities.Departement;
 import fr.inti.entities.Matiere;
 
 
@@ -153,17 +151,15 @@ public class MatiereDaoImpl implements IMatiereDao{
 		// recuperer entityManager
 		EntityManager em = emf.createEntityManager();
 		
-		//recuperer un matiere par son id en utilisant les requetes nommees 
-
-		TypedQuery queryOneMatiere=em.createNamedQuery("reqOneMatiere",Matiere.class);
 		
-		// passage des parametres de la requete
-		queryOneMatiere.setParameter("mId",matiere.getId());
-		// envoyer la requete et recuperer le resultat
-		Matiere eOneMatiere= (Matiere) queryOneMatiere.getSingleResult();
+		Matiere mOut = em.find(Matiere.class, matiere.getId()) ;
 		
-		return eOneMatiere;
-	
+		System.out.println(mOut);
+		
+		em.close();
+		emf.close();
+		
+		return mOut;
 	}
 
 	}

@@ -1,6 +1,7 @@
 package fr.inti.ManagedBean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -10,7 +11,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import fr.inti.entities.Matiere;
-import fr.inti.entities.Matiere;
+
 import fr.inti.service.IMatiereService;
 import fr.inti.service.MatiereServiceImpl;
 
@@ -23,6 +24,7 @@ public class MatiereManagedBean implements Serializable {
 	// attributs
 		private Matiere matiere;
 		private List<Matiere> listeMatieres;
+		private boolean indice;
 
 		// Association uml en java
 
@@ -38,6 +40,7 @@ public class MatiereManagedBean implements Serializable {
 
 			this.matiere = new Matiere();
 			this.listeMatieres = matiereService.getAllMatieres();
+			this.indice = false;
 
 		}
 
@@ -58,8 +61,18 @@ public class MatiereManagedBean implements Serializable {
 		public void setListeMatieres(List<Matiere> listeMatieres) {
 			this.listeMatieres = listeMatieres;
 		}
+		
+			public boolean isIndice() {
+			return indice;
+		}
+
+		public void setIndice(boolean indice) {
+			this.indice = indice;
+		}
 
 		// methodes metier
+
+	
 
 		public String ajouterMatiere() {
 			Matiere verif = matiereService.ajouterMatiere(this.matiere);
@@ -120,12 +133,16 @@ public class MatiereManagedBean implements Serializable {
 		 public String RechercherMatiere() {
 			 
 			 Matiere verif = matiereService.getMatiereById(this.matiere);
-
+			 List<Matiere> listeMatiere2 = new ArrayList<Matiere>();
 				if (verif != null) {
-					this.listeMatieres = matiereService.getAllMatieres();
-					return "matiereListe";
+					this.indice = true;
+					System.out.println(verif);
+					listeMatiere2.add(verif);
+					this.listeMatieres = listeMatiere2;
+					return "matiereRechercher";
 
 				} else {
+					this.indice=false;
 					FacesContext.getCurrentInstance().addMessage(null,
 							new FacesMessage("Recherche impossible, identifiant invalide"));
 					return "matiereRechercher";

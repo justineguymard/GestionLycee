@@ -7,10 +7,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 
 import fr.inti.entities.Departement;
-import fr.inti.entities.Departement;
+
 
 public class DepartementDaoImpl implements IDepartementDao{
 
@@ -136,6 +135,7 @@ public class DepartementDaoImpl implements IDepartementDao{
 		return listeDepartementsJPQL;
 	}
 
+
 	@Override
 	public Departement getDepartementById(Departement departement) {
 		
@@ -146,14 +146,14 @@ public class DepartementDaoImpl implements IDepartementDao{
 		
 		//recuperer un departement par son id en utilisant les requetes nommees 
 
-		TypedQuery queryOneDepartement=em.createNamedQuery("reqOneDepartement",Departement.class);
+		Departement eOut = em.find(Departement.class, departement.getId()) ;
 		
-		// passage des parametres de la requete
-		queryOneDepartement.setParameter("dId",departement.getId());
-		// envoyer la requete et recuperer le resultat
-		Departement eOneDepartement= (Departement) queryOneDepartement.getSingleResult();
+		System.out.println(eOut);
 		
-		return eOneDepartement;
+		em.close();
+		emf.close();
+		
+		return eOut;
 	}
 
 }

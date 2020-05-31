@@ -1,6 +1,7 @@
 package fr.inti.ManagedBean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -10,7 +11,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import fr.inti.entities.Departement;
-import fr.inti.entities.Professeur;
+
 import fr.inti.service.IDepartementService;
 import fr.inti.service.DepartementServiceImpl;
 
@@ -22,6 +23,7 @@ public class DepartementManagedBean implements Serializable {
 	// attributs
 	private Departement departement;
 	private List<Departement> listeDepartements;
+	private boolean indice;
 
 	// Association uml en java
 
@@ -36,6 +38,7 @@ public class DepartementManagedBean implements Serializable {
 
 		this.departement = new Departement();
 		this.listeDepartements = departementService.getAllDepartements();
+		this.indice = false;
 
 	}
 
@@ -47,6 +50,16 @@ public class DepartementManagedBean implements Serializable {
 
 	public void setDepartement(Departement departement) {
 		this.departement = departement;
+	}
+	
+	
+
+	public boolean isIndice() {
+		return indice;
+	}
+
+	public void setIndice(boolean indice) {
+		this.indice = indice;
 	}
 
 	public List<Departement> getListeDepartements() {
@@ -115,10 +128,14 @@ public class DepartementManagedBean implements Serializable {
 	 public String Rechercher() {
 		 
 		 Departement verif = departementService.getDepartementById(this.departement);
-
+		 List <Departement> testListe = new ArrayList<Departement>();
 			if (verif != null) {
-				this.listeDepartements = departementService.getAllDepartements();
-				return "departementListe";
+				this.indice = true;
+				System.out.println(verif);
+				
+				testListe.add(verif);
+				this.listeDepartements = testListe;
+				return "departementRechercher";
 
 			} else {
 				FacesContext.getCurrentInstance().addMessage(null,

@@ -12,7 +12,7 @@ import javax.faces.context.FacesContext;
 
 import fr.inti.entities.Departement;
 import fr.inti.entities.Etudiant;
-import fr.inti.entities.Professeur;
+
 import fr.inti.service.EtudiantServiceImpl;
 import fr.inti.service.IEtudiantService;
 
@@ -25,6 +25,7 @@ public class EtudiantManagedBean implements Serializable {
 	private Etudiant etudiant;
 	private List<Etudiant> listeEtudiants;
 	private Departement departement;
+	private boolean indice;
 	// association uml en java
 
 	private IEtudiantService etudiantService = new EtudiantServiceImpl();
@@ -40,6 +41,7 @@ public class EtudiantManagedBean implements Serializable {
 		this.etudiant = new Etudiant();
 		this.departement = new Departement();
 		this.listeEtudiants = etudiantService.getAllEtudiants();
+		this.indice = false;
 
 	}
 
@@ -67,7 +69,16 @@ public class EtudiantManagedBean implements Serializable {
 		this.departement = departement;
 	}
 
+	
+	public boolean isIndice() {
+		return indice;
+	}
+
+	public void setIndice(boolean indice) {
+		this.indice = indice;
+	}
 	// méthodes métiers
+
 
 	public String ajouterEtudiant() {
 		int verif = etudiantService.ajouterEtudiant(this.etudiant);
@@ -151,12 +162,18 @@ public class EtudiantManagedBean implements Serializable {
 	 public String RechercherEtudiant() {
 		 
 		 Etudiant verif = etudiantService.getEtudiantById(this.etudiant);
-
+		 List<Etudiant> testListe = new ArrayList<Etudiant>();
+		 
 			if (verif != null) {
-				this.listeEtudiants = etudiantService.getAllEtudiants();
-				return "etudiantListe";
+				this.indice = true;
+				System.out.println(verif);
+				
+				testListe.add(verif);
+				this.listeEtudiants = testListe;
+				return "etudiantRechercher";
 
 			} else {
+				this.indice = false;
 				FacesContext.getCurrentInstance().addMessage(null,
 						new FacesMessage("Recherche impossible, identifiant invalide"));
 				return "etudiantRechercher";

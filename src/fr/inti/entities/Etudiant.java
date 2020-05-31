@@ -9,14 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
+
 import javax.persistence.Table;
 
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name="etudiants")
-@NamedQuery(name= "reqOneEtudiant", query = "SELECT e FROM Etudiant e WHERE e.id=:eId")
 public class Etudiant implements Serializable {
 	
 	//attributs

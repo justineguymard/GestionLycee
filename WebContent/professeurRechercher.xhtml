@@ -33,6 +33,44 @@
 	</h:form>
 </div>
 
+<p:dataTable id="tbl2" var="pr" value="#{professeurMB.listeProfesseurs}" rendered="#{professeurMB.indice}">
+		<p:column headerText="ID" style="width : 30px">
+			<h:outputText value="#{pr.id}" />
+		</p:column>
+
+		<p:column headerText="Nom">
+			<h:outputText value="#{pr.nom}" />
+		</p:column>
+		<p:column headerText="Prenom">
+			<h:outputText value="#{pr.prenom}" />
+		</p:column>
+		<p:column headerText="date d'affectation">
+			<h:outputText value="#{pr.dateAff}">
+			<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+			</h:outputText>
+		</p:column>
+		<p:column headerText="Departement (ID)">
+			<h:outputText value="#{pr.departement.nom} (#{pr.departement.id})"
+				rendered="#{pr.departement.id != NULL}" />
+			<h:outputText value="Non associé(e) à un département"
+				rendered="#{pr.departement.id == NULL}" />
+
+		</p:column>
+		<p:column headerText="Matiere (ID)">
+			<h:outputText value="#{pr.matiere.intitule} (#{pr.matiere.id})"
+				rendered="#{pr.matiere.id != NULL}" />
+			<h:outputText value="Non associé(e) à une matiere"
+				rendered="#{pr.departement.id == NULL}" />
+		</p:column>
+
+	</p:dataTable>
+
+
+<h2>
+<h:messages />
+
+</h2>
+
 
 <ui:insert name = "footer" >
       <ui:include src = "/ressources/template/footer.xhtml" />
