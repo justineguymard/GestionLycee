@@ -30,6 +30,15 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 		try {
 		// ouvrir une transaction (commencer une transaction)
 		tx.begin();
+		
+		System.out.println(etudiant);;
+		
+		// recuperer l'étudiant à modifier
+//		Etudiant etudiantModif = em.find(Etudiant.class, etudiant.getId());
+//
+//		// Modifier l'étudiant en java
+//		etudiantModif.setNom(etudiant.getNom());
+//		etudiantModif.setPrenom(etudiant.getPrenom());
 		// rendre l'objet persistant
 		em.persist(etudiant);
 		// ferme transaction
