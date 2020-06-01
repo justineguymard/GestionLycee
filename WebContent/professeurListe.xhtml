@@ -110,17 +110,17 @@
 		</p:column>
 		
 		<p:column headerText="Departement (ID)" style="width : 50%">
-			<h:outputText value="#{pro.departement.nom} (#{pro.departement.id})"
-				rendered="#{pr.departement.id != NULL}" />
+			<h:outputText value="#{professeurMB.departement.nom} (#{pro.departement.id})"
+				rendered="#{pro.departement.id != NULL}" />
 			<h:outputText value="Non associé(e) à un département"
 				rendered="#{pro.departement.id == NULL}" />
 
 		</p:column>
 		<p:column headerText="Matiere (ID)" style="width : 40%">
-			<h:outputText value="#{pro.matiere.intitule} (#{pr.matiere.id})"
+			<h:outputText value="#{pro.matiere.intitule} (#{pro.matiere.id})"
 				rendered="#{pro.matiere.id != NULL}" />
 			<h:outputText value="Non associé(e) à une matiere"
-				rendered="#{pro.departement.id == NULL}" />
+				rendered="#{pro.matiere.id == NULL}" />
 		</p:column>
 		
 		<p:column headerText="Opérations" style="width : 45%" >
