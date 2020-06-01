@@ -128,7 +128,7 @@
 	
 
 	<p:dataTable var="pro" value="#{professeurMB.profSansMatiere}" style="width : 62%;vertical-align:top; float:left"  >
-		<f:facet name="header">Liste des professeurs sans assignation</f:facet>
+		<f:facet name="header">Liste des professeurs sans matière</f:facet>
 		<p:column headerText="ID" style="width : 3%">
 			<h:outputText value="#{pro.id}" />
 		</p:column>
@@ -158,7 +158,7 @@
 	
 
 	<p:dataTable var="mat" value="#{matiereMB.listeMatieres}"  style="width : 35%; vertical-align:top; float :right">
-		<f:facet name="header">Liste des départements disponibles</f:facet>
+		<f:facet name="header">Liste des matières disponibles</f:facet>
 		<p:column headerText="Matiere (ID)" >
 			<h:outputText value="#{mat.intitule} (#{mat.id})" />
 		</p:column>
