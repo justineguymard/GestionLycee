@@ -89,16 +89,19 @@
 						<h3>Ajouter un professeur</h3>
 
 
-						<h:inputText class="form-control col-md-4" name="name"
+						<h:inputText class="form-control col-md-4" name="name" id="prnom"
 							placeholder="Nom " value="#{professeurMB.professeur.nom}"
 							required="true" />
+						<p:watermark for="prnom" value="Nom *" />
 
-						<h:inputText class="form-control col-md-4" name="prenom"
+						<h:inputText class="form-control col-md-4" name="prenom" id="prpr"
 							placeholder="Prenom " value="#{professeurMB.professeur.prenom}"
 							required="true" />
+						<p:watermark for="prpr" value="Prenom *" />
 
-						<p:calendar id="popup" placeholder=" Date"
+						<p:calendar id="popup" placeholder=" Date" 
 							value="#{professeurMB.professeur.dateAff}" />
+						<p:watermark for="popup" value="Date d'affectation *" />
 
 						<br />
 						<h:commandButton value="Ajouter"

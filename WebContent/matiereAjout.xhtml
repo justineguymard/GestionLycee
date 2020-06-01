@@ -87,9 +87,10 @@
 						<h3>Ajouter une matière</h3>
 
 
-						<h:inputText class="form-control col-md-4" name="name"
+						<h:inputText class="form-control col-md-4" name="name" id="matnom"
 							placeholder="Intitule *" value="#{matiereMB.matiere.intitule}"
 							required="true" />
+							<p:watermark for="matnom" value="Intitulé *" />
 
 				
 						<br />
